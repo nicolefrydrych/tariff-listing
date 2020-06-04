@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Application() {
+export default function Header() {
   return <StyledHeader>Check24</StyledHeader>
 }
 
