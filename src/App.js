@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react'
+import TariffPage from './components/TariffPage'
 
 function App() {
-  return <div>Hello World!</div>;
+  return (
+    <div>
+      <TariffPage />
+    </div>
+  )
 }
 
-export default App;
+export default App
