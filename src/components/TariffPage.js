@@ -22,6 +22,7 @@ const TariffPageGrid = styled.div`
   grid-template-rows: 10% 20% 70%;
   grid-template-columns: 30% auto;
   padding: 20px;
+  height: 100vh;
 `
 
 const Sortbar = styled.div`
