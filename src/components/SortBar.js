@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function SortBar() {
+export default function SortBar({ sortData }) {
   const providers = [
     { name: 'A-Z', isSelected: false },
     { name: 'Z-A', isSelected: false },
@@ -18,7 +18,9 @@ export default function SortBar() {
             </option>
           ))}
         </DropDownMenu>
-        <LowestPriceButton>Niedrigster Preis</LowestPriceButton>
+        <LowestPriceButton onClick={() => sortData()}>
+          Niedrigster Preis
+        </LowestPriceButton>
       </SortBarHeader>
     </div>
   )
@@ -42,9 +44,6 @@ const DropDownMenu = styled.select`
   border: 0;
   outline: none;
   padding: 12px 16px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  font-family: 'Gill Sans';
 `
 
 const LowestPriceButton = styled.button`
@@ -53,7 +52,4 @@ const LowestPriceButton = styled.button`
   border: 0;
   outline: none;
   padding: 12px 16px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  font-family: 'Gill Sans';
 `

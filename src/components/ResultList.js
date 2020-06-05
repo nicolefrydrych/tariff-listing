@@ -1,22 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import tariffsData from '../tariffsData'
 
-export default function ResultList() {
+export default function ResultList({ tariffCards, sortCards }) {
   return (
     <div>
       <ResultContainer>
         <ResultListHeader>Resultlist</ResultListHeader>
-        {tariffsData.map((tariff) => (
-          <div>
+        {sortMethod(sortCards).map((tariff, name) => (
+          <div key={name}>
             <CardGrid>
               <ResultEntry>{tariff.resultEntry}</ResultEntry>
               <ImageContainer>
                 <img src={tariff.logoUrl}></img>
               </ImageContainer>
               <StyledUspList>
-                {tariff.uspList.map((upsItem) => (
-                  <StyledUspItem>{upsItem}</StyledUspItem>
+                {tariff.uspList.map((upsItem, index) => (
+                  <StyledUspItem key={index}>{upsItem}</StyledUspItem>
                 ))}
               </StyledUspList>
               <StyledPriceTag>{tariff.priceTag}</StyledPriceTag>
@@ -28,6 +27,16 @@ export default function ResultList() {
       </ResultContainer>
     </div>
   )
+
+  function sortMethod(sortCards) {
+    if (sortCards === true) {
+      return tariffCards.sort((a, b) => a.priceTag - b.priceTag)
+    }
+    if (sortCards === false) {
+      return tariffCards.sort((a, b) => b.priceTag - a.priceTag)
+    }
+    return tariffCards
+  }
 }
 
 const ResultContainer = styled.section`

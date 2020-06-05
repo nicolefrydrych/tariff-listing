@@ -5,7 +5,7 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/allianz_Travel_rei_170x26_20181123.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
-    priceTag: '122,00€ pro Jahr',
+    priceTag: 122.0,
   },
   {
     resultEntry: 'BarmeniaDirekt Versicherung',
@@ -13,21 +13,21 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/barmenia_direkt_rei_170x40_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Gepäck'],
-    priceTag: '84,60€ pro Jahr',
+    priceTag: 84.6,
   },
   {
     resultEntry: 'Ergo Versicherung',
     name: 'ergoVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/ergo_RV_rei_200x126_20190325.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '89,00€ pro Jahr',
+    priceTag: 89.0,
   },
   {
     resultEntry: 'mdt travel Versicherung',
     name: 'madTravelVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/mdt_rei_170x45_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Gepäck'],
-    priceTag: '89,00€ pro Jahr',
+    priceTag: 89.0,
   },
   {
     resultEntry: 'Reiseversicherungen-direkt Versicherung',
@@ -35,7 +35,7 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/reiseversicherungen_direkt_rei_169x13_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '94,00€ pro Jahr',
+    priceTag: 64.0,
   },
   {
     resultEntry: 'TravelSecure Versicherung',
@@ -43,28 +43,28 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/travel_secure_rei_144x38_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '117,00€ pro Jahr',
+    priceTag: 117.0,
   },
   {
     resultEntry: 'Berlin Direkt Versicherung',
     name: 'berlinDirektVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/bd24_rei_170x70_20190221.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '119,00€ pro Jahr',
+    priceTag: 119.0,
   },
   {
     resultEntry: 'coverwise Versicherung',
     name: 'coverwiseVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/coverwise_rei_170x94_20180103.png',
     uspList: ['Gepäck'],
-    priceTag: '126,00€ pro Jahr',
+    priceTag: 106.0,
   },
   {
     resultEntry: 'LTA Versicherung',
     name: 'ltaVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/lta_rei_174x91_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '135,00€ pro Jahr',
+    priceTag: 135.0,
   },
   {
     resultEntry: 'HanseMerkur Versicherung',
@@ -72,7 +72,7 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/hanse_merkur_rei_170x40_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
-    priceTag: '155,00€ pro Jahr',
+    priceTag: 125.0,
   },
 ]
 

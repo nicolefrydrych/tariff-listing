@@ -1,20 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
+import tariffsData from '../tariffsData'
 import ResultList from './ResultList'
 import SortBar from './SortBar'
 
 export default function TariffPage() {
+  const [tariffCards, setTariffCards] = useState(tariffsData)
+  const [sortCards, setSortCards] = useState(null)
+
   return (
     <>
       <Header />
       <TariffPageGrid>
-        <SortBar />
+        <SortBar sortData={sortData} />
         <Filterbar> Filterbar </Filterbar>
-        <ResultList />
+        <ResultList tariffCards={tariffCards} sortCards={sortCards} />
       </TariffPageGrid>
     </>
   )
+
+  function sortData() {
+    setSortCards(!sortCards)
+  }
 }
 
 const TariffPageGrid = styled.div`
