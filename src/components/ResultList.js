@@ -6,7 +6,7 @@ export default function ResultList() {
   return (
     <div>
       <ResultContainer>
-        <ResultlistHeader>Resultlist</ResultlistHeader>
+        <ResultListHeader>Resultlist</ResultListHeader>
         {tariffsData.map((tariff) => (
           <div>
             <CardGrid>
@@ -43,7 +43,7 @@ const ResultContainer = styled.section`
   padding-bottom: 40px;
 `
 
-const ResultlistHeader = styled.h4`
+const ResultListHeader = styled.h4`
   text-align: center;
   border-bottom: 1px solid black;
   padding: 20px;
