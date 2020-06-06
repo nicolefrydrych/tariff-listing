@@ -7,21 +7,31 @@ import SortBar from './SortBar'
 
 export default function TariffPage() {
   const [tariffCards, setTariffCards] = useState(tariffsData)
-  const [sortCards, setSortCards] = useState(null)
+  const [sortCardsByPrice, setSortCardsByPrice] = useState(null)
+  const [sortCardsByName, setSortCardsByName] = useState()
 
   return (
     <>
       <Header />
       <TariffPageGrid>
-        <SortBar sortData={sortData} />
+        <SortBar sortData={sortData} sortCards={sortCards} />
         <Filterbar> Filterbar </Filterbar>
-        <ResultList tariffCards={tariffCards} sortCards={sortCards} />
+        <ResultList
+          tariffCards={tariffCards}
+          sortCardsByPrice={sortCardsByPrice}
+          sortCardsByName={sortCardsByName}
+        />
       </TariffPageGrid>
     </>
   )
 
   function sortData() {
-    setSortCards(!sortCards)
+    setSortCardsByName('')
+    setSortCardsByPrice(!sortCardsByPrice)
+  }
+
+  function sortCards(value) {
+    setSortCardsByName(value)
   }
 }
 

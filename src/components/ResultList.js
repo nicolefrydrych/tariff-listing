@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function ResultList({ tariffCards, sortCards }) {
+export default function ResultList({
+  tariffCards,
+  sortCardsByPrice,
+  sortCardsByName,
+}) {
   return (
     <div>
       <ResultContainer>
         <ResultListHeader>Resultlist</ResultListHeader>
-        {sortMethod(sortCards).map((tariff, name) => (
+        {sortMethod(sortCardsByPrice, sortCardsByName).map((tariff, name) => (
           <div key={name}>
             <CardGrid>
               <ResultEntry>{tariff.resultEntry}</ResultEntry>
@@ -28,11 +32,19 @@ export default function ResultList({ tariffCards, sortCards }) {
     </div>
   )
 
-  function sortMethod(sortCards) {
-    if (sortCards === true) {
+  function sortMethod(sortCardsByPrice, sortCardsByName) {
+    if (sortCardsByName === 'A-Z') {
+      return tariffCards.sort((a, b) => a.name.localeCompare(b.name))
+    }
+
+    if (sortCardsByName === 'Z-A') {
+      return tariffCards.sort((a, b) => b.name.localeCompare(a.name))
+    }
+
+    if (sortCardsByPrice === true) {
       return tariffCards.sort((a, b) => a.priceTag - b.priceTag)
     }
-    if (sortCards === false) {
+    if (sortCardsByPrice === false) {
       return tariffCards.sort((a, b) => b.priceTag - a.priceTag)
     }
     return tariffCards

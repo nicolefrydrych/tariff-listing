@@ -1,16 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function SortBar({ sortData }) {
-  const providers = [
-    { name: 'A-Z', isSelected: false },
-    { name: 'Z-A', isSelected: false },
-  ]
+export default function SortBar({ sortData, sortCards }) {
+  const providers = [{ name: 'A-Z' }, { name: 'Z-A' }]
 
   return (
     <div>
       <SortBarHeader>
-        <DropDownMenu>
+        <DropDownMenu onChange={handleChange}>
           <option value="">Anbieter</option>
           {providers.map((provider) => (
             <option key={provider.name} value={provider.name}>
@@ -24,6 +21,10 @@ export default function SortBar({ sortData }) {
       </SortBarHeader>
     </div>
   )
+
+  function handleChange(event) {
+    sortCards(event.target.value)
+  }
 }
 
 const SortBarHeader = styled.div`
