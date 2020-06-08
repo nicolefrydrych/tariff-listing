@@ -15,9 +15,12 @@ export default function TariffPage() {
     <>
       <Header />
       <TariffPageGrid>
-        <FilterBar />
+        <FilterBar
+          tariffCards={tariffCards}
+          onFilter={handleFilter}
+          onClear={handleClear}
+        />
         <SortBar sortData={sortData} sortCards={sortCards} />
-
         <ResultList
           tariffCards={tariffCards}
           sortCardsByPrice={sortCardsByPrice}
@@ -34,6 +37,14 @@ export default function TariffPage() {
 
   function sortCards(value) {
     setSortCardsByName(value)
+  }
+
+  function handleFilter(clickedCheckbox) {
+    setTariffCards(clickedCheckbox)
+  }
+
+  function handleClear() {
+    setTariffCards(tariffsData)
   }
 }
 

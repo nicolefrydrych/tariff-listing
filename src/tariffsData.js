@@ -34,7 +34,7 @@ const tariffsData = [
     name: 'reiseversicherungenDirektVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/reiseversicherungen_direkt_rei_169x13_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
     priceTag: 64.0,
   },
   {
@@ -49,7 +49,7 @@ const tariffsData = [
     resultEntry: 'Berlin Direkt Versicherung',
     name: 'berlinDirektVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/bd24_rei_170x70_20190221.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: ['Abbruch', 'Reisekranken', 'Gepäck'],
     priceTag: 119.0,
   },
   {
@@ -71,7 +71,7 @@ const tariffsData = [
     name: 'hanseMerkurVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/hanse_merkur_rei_170x40_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
     priceTag: 125.0,
   },
 ]
