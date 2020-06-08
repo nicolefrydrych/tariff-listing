@@ -13,4 +13,5 @@ const StyledHeader = styled.header`
   align-items: center;
   height: 65px;
   font-size: 40px;
+  width: 100%;
 `

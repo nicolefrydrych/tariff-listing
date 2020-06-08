@@ -6,7 +6,7 @@ export default function SortBar({ sortData, sortCards }) {
 
   return (
     <div>
-      <SortBarHeader>
+      <SortBarContainer>
         <DropDownMenu onChange={handleChange}>
           <option value="">Anbieter</option>
           {providers.map((provider) => (
@@ -18,7 +18,7 @@ export default function SortBar({ sortData, sortCards }) {
         <LowestPriceButton onClick={() => sortData()}>
           Niedrigster Preis
         </LowestPriceButton>
-      </SortBarHeader>
+      </SortBarContainer>
     </div>
   )
 
@@ -27,7 +27,7 @@ export default function SortBar({ sortData, sortCards }) {
   }
 }
 
-const SortBarHeader = styled.div`
+const SortBarContainer = styled.div`
   background: #e2ecf7;
   grid-column-start: 2;
   grid-column-end: 3;

@@ -74,7 +74,7 @@ const CardGrid = styled.div`
   display: grid;
   grid-gap: 2px;
   grid-template-rows: 25% auto 30%;
-  grid-template-columns: 1fr 160px 1fr;
+  grid-template-columns: 45% auto 20%;
   height: 200px;
   margin: 40px 20px 0;
   border: 1px solid black;
