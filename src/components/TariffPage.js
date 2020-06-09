@@ -1,53 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
+import tariffsData from '../tariffsData'
+import ResultList from './ResultList'
+import SortBar from './SortBar'
+import FilterBar from './FilterBar'
 
-export default function Application() {
+export default function TariffPage() {
+  const [state, setState] = useState(tariffsData)
+  const [tariffCards, setTariffCards] = useState(tariffsData)
+  const [sortCardsByPrice, setSortCardsByPrice] = useState()
+  const [sortCardsByName, setSortCardsByName] = useState()
+
   return (
     <>
       <Header />
       <TariffPageGrid>
-        <Sortbar>Sortbar</Sortbar>
-        <Filterbar> Filterbar </Filterbar>
-        <ResultList>Resultlist </ResultList>
+        <FilterBar
+          tariffCards={tariffCards}
+          onFilterByContent={handleFilterByContent}
+          clearCheckboxes={clearCheckboxes}
+        />
+        <SortBar
+          onSortCardsByPrice={handleSortCardsByPrice}
+          onSortCardsByName={handleSortCardsByName}
+        />
+        <ResultList
+          tariffCards={tariffCards}
+          sortCardsByPrice={sortCardsByPrice}
+          sortCardsByName={sortCardsByName}
+        />
       </TariffPageGrid>
     </>
   )
+
+  function handleSortCardsByPrice() {
+    setSortCardsByPrice(!sortCardsByPrice)
+    setSortCardsByName('')
+  }
+
+  function handleSortCardsByName(event) {
+    setSortCardsByName(event.target.innerHTML)
+  }
+
+  function handleFilterByContent(clickedCheckbox, event) {
+    event.currentTarget.checked === true
+      ? setTariffCards(clickedCheckbox)
+      : setTariffCards(tariffsData)
+  }
+
+  function clearCheckboxes() {
+    setTariffCards(tariffsData)
+  }
 }
 
 const TariffPageGrid = styled.div`
-  height: 100vh;
   display: grid;
-  grid-gap: 15px;
-  grid-template-rows: 10% 20% 70%;
+  grid-gap: 25px;
+  grid-template-rows: 10% 30% 60%;
   grid-template-columns: 30% auto;
   padding: 20px;
-`
-
-const Sortbar = styled.div`
-  background: #e2ecf7;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-const Filterbar = styled.div`
-  background: #e5ecff;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  text-align: center;
-`
-
-const ResultList = styled.section`
-  background: #f6f4f7;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 4;
-  text-align: center;
+  height: 100vh;
 `
