@@ -1,30 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function SortBar({ sortData, sortCards }) {
-  const providers = [{ name: 'A-Z' }, { name: 'Z-A' }]
-
+export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
   return (
     <div>
       <SortBarContainer>
-        <DropDownMenu onChange={handleChange}>
-          <option value="">Anbieter</option>
-          {providers.map((provider) => (
-            <option key={provider.name} value={provider.name}>
-              {provider.name}
-            </option>
-          ))}
-        </DropDownMenu>
-        <LowestPriceButton onClick={() => sortData()}>
+        <ResultSortingText>
+          <div>Anbieter </div>
+          <SortResult></SortResult>
+          <DropdownList>
+            <ListItem onClick={(event) => onSortCardsByName(event)}>
+              Anbieter: A-Z
+            </ListItem>
+            <ListItem onClick={(event) => onSortCardsByName(event)}>
+              Anbieter: Z-A
+            </ListItem>
+          </DropdownList>
+        </ResultSortingText>
+        <PriceButton onClick={() => onSortCardsByPrice()}>
           Niedrigster Preis
-        </LowestPriceButton>
+        </PriceButton>
       </SortBarContainer>
     </div>
   )
-
-  function handleChange(event) {
-    sortCards(event.target.value)
-  }
 }
 
 const SortBarContainer = styled.div`
@@ -34,23 +32,65 @@ const SortBarContainer = styled.div`
   grid-row-start: 1;
   grid-row-end: 2;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  border: 1px solid gray;
+  height: 100%;
+`
+const DropdownList = styled.ul`
+  display: none;
+  list-style: none;
+  background: #f2f2f2;
+  width: 100%;
+  position: absolute;
+  top: 74px;
+  border: 1px solid gray;
+  border-top: none;
 `
 
-const DropDownMenu = styled.select`
+const ListItem = styled.li`
+  text-align: center;
+  padding: 10px;
+  &:hover {
+    background: #939393;
+  }
+`
+const ResultSortingText = styled.div`
   background: #e2ecf7;
   color: black;
   border: 0;
   outline: none;
-  padding: 12px 16px;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: lightgray;
+  }
+  &:hover ${DropdownList} {
+    display: block;
+  }
+`
+const SortResult = styled.span`
+  border-left: 4.5px solid transparent;
+  border-top: 5px solid #005ea8;
+  border-right: 4.5px solid transparent;
+  position: absolute;
+  right: 64px;
+  top: 38px;
 `
 
-const LowestPriceButton = styled.button`
+const PriceButton = styled.button`
   background: #e2ecf7;
   color: black;
   border: 0;
   outline: none;
-  padding: 12px 16px;
+  flex-grow: 1;
+  height: 100%;
+  &:hover {
+    background-color: lightgray;
+  }
 `

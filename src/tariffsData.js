@@ -4,7 +4,7 @@ const tariffsData = [
     name: 'allianzTravelVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/allianz_Travel_rei_170x26_20181123.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
+    uspList: ['Abbruch', 'Reisekranken', 'Gepäck'],
     priceTag: 122.0,
   },
   {

@@ -33,11 +33,11 @@ export default function ResultList({
   )
 
   function sortMethod(sortCardsByPrice, sortCardsByName) {
-    if (sortCardsByName === 'A-Z') {
+    if (sortCardsByName === 'Anbieter: A-Z') {
       return tariffCards.sort((a, b) => a.name.localeCompare(b.name))
     }
 
-    if (sortCardsByName === 'Z-A') {
+    if (sortCardsByName === 'Anbieter: Z-A') {
       return tariffCards.sort((a, b) => b.name.localeCompare(a.name))
     }
 

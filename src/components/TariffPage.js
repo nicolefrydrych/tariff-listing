@@ -8,7 +8,7 @@ import FilterBar from './FilterBar'
 
 export default function TariffPage() {
   const [tariffCards, setTariffCards] = useState(tariffsData)
-  const [sortCardsByPrice, setSortCardsByPrice] = useState(null)
+  const [sortCardsByPrice, setSortCardsByPrice] = useState()
   const [sortCardsByName, setSortCardsByName] = useState()
 
   return (
@@ -17,10 +17,13 @@ export default function TariffPage() {
       <TariffPageGrid>
         <FilterBar
           tariffCards={tariffCards}
-          onFilter={handleFilter}
-          onClear={handleClear}
+          onFilterByContent={handleFilterByContent}
+          clearCheckboxes={clearCheckboxes}
         />
-        <SortBar sortData={sortData} sortCards={sortCards} />
+        <SortBar
+          onSortCardsByPrice={handleSortCardsByPrice}
+          onSortCardsByName={handleSortCardsByName}
+        />
         <ResultList
           tariffCards={tariffCards}
           sortCardsByPrice={sortCardsByPrice}
@@ -30,20 +33,20 @@ export default function TariffPage() {
     </>
   )
 
-  function sortData() {
-    setSortCardsByName('')
+  function handleSortCardsByPrice() {
     setSortCardsByPrice(!sortCardsByPrice)
+    setSortCardsByName('')
   }
 
-  function sortCards(value) {
-    setSortCardsByName(value)
+  function handleSortCardsByName(event) {
+    setSortCardsByName(event.target.innerHTML)
   }
 
-  function handleFilter(clickedCheckbox) {
+  function handleFilterByContent(clickedCheckbox) {
     setTariffCards(clickedCheckbox)
   }
 
-  function handleClear() {
+  function clearCheckboxes() {
     setTariffCards(tariffsData)
   }
 }

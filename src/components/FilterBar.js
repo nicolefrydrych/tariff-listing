@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function FilterBar({ onFilter, tariffCards, onClear }) {
+export default function FilterBar({
+  onFilterByContent,
+  tariffCards,
+  clearCheckboxes,
+}) {
   return (
     <FilterBarContainer>
       <FilterBarHeadline>Filterbar</FilterBarHeadline>
@@ -24,41 +28,42 @@ export default function FilterBar({ onFilter, tariffCards, onClear }) {
         </section>
         <span>logo4</span>
         <section>
-          <input type="checkbox" onClick={handleGepäckClick} />
+          <input type="checkbox" onChange={handleGepäckClick} />
           <label>Gepäck</label>
         </section>
         <span>logo5</span>
       </FilterBarGrid>
-      <StyledButton onClick={clearInputFields}>clear</StyledButton>
+      <StyledButton onClick={onClear}>clear</StyledButton>
     </FilterBarContainer>
   )
+
   function handleRücktrittClick() {
     const filterForRücktritt = tariffCards.filter((rücktrittCard) =>
       rücktrittCard.uspList.includes('Rücktritt')
     )
-    onFilter(filterForRücktritt)
+    onFilterByContent(filterForRücktritt)
   }
   function handleAbbruchClick() {
     const filterForAbbruch = tariffCards.filter((abbruchCard) =>
       abbruchCard.uspList.includes('Abbruch')
     )
-    onFilter(filterForAbbruch)
+    onFilterByContent(filterForAbbruch)
   }
   function handleReisekrankenClick() {
     const filterForReisekranken = tariffCards.filter((reisekrankenCard) =>
       reisekrankenCard.uspList.includes('Reisekranken')
     )
-    onFilter(filterForReisekranken)
+    onFilterByContent(filterForReisekranken)
   }
   function handleGepäckClick() {
     const filterForGepäck = tariffCards.filter((gepäckCard) =>
       gepäckCard.uspList.includes('Gepäck')
     )
-    onFilter(filterForGepäck)
+    onFilterByContent(filterForGepäck)
   }
 
-  function clearInputFields() {
-    onClear()
+  function onClear() {
+    clearCheckboxes()
   }
 }
 
