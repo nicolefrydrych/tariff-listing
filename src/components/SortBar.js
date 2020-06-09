@@ -8,6 +8,7 @@ export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
         <ResultSortingText>
           <div>Anbieter </div>
           <SortResult></SortResult>
+          <SortResultOnHover></SortResultOnHover>
           <DropdownList>
             <ListItem onClick={(event) => onSortCardsByName(event)}>
               Anbieter: A-Z
@@ -55,16 +56,31 @@ const ListItem = styled.li`
     background: #939393;
   }
 `
+
+const SortResult = styled.span`
+  border-left: 4.5px solid transparent;
+  border-top: 5px solid #005ea8;
+  border-right: 4.5px solid transparent;
+  margin-left: 5px;
+`
+
+const SortResultOnHover = styled.span`
+  border-left: 4.5px solid transparent;
+  border-bottom: 5px solid #005ea8;
+  border-right: 4.5px solid transparent;
+  margin-left: 5px;
+  display: none;
+`
+
 const ResultSortingText = styled.div`
   background: #e2ecf7;
   color: black;
   border: 0;
   outline: none;
-  flex-grow: 1;
+  width: 100%;
   height: 100%;
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   &:hover {
@@ -73,14 +89,12 @@ const ResultSortingText = styled.div`
   &:hover ${DropdownList} {
     display: block;
   }
-`
-const SortResult = styled.span`
-  border-left: 4.5px solid transparent;
-  border-top: 5px solid #005ea8;
-  border-right: 4.5px solid transparent;
-  position: absolute;
-  right: 64px;
-  top: 38px;
+  &:hover ${SortResult} {
+    display: none;
+  }
+  &:hover ${SortResultOnHover} {
+    display: block;
+  }
 `
 
 const PriceButton = styled.button`
@@ -88,7 +102,7 @@ const PriceButton = styled.button`
   color: black;
   border: 0;
   outline: none;
-  flex-grow: 1;
+  width: 100%;
   height: 100%;
   &:hover {
     background-color: lightgray;

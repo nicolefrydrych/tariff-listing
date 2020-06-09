@@ -9,7 +9,6 @@ export default function ResultList({
   return (
     <div>
       <ResultContainer>
-        <ResultListHeader>Resultlist</ResultListHeader>
         {sortMethod(sortCardsByPrice, sortCardsByName).map((tariff, name) => (
           <div key={name}>
             <CardGrid>
@@ -52,7 +51,6 @@ export default function ResultList({
 }
 
 const ResultContainer = styled.section`
-  background: #f6f4f7;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -60,14 +58,7 @@ const ResultContainer = styled.section`
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  padding-bottom: 40px;
-`
-
-const ResultListHeader = styled.h4`
-  text-align: center;
-  border-bottom: 1px solid black;
-  padding: 20px;
+  padding-bottom: 16px;
 `
 
 const CardGrid = styled.div`
@@ -76,7 +67,7 @@ const CardGrid = styled.div`
   grid-template-rows: 25% auto 30%;
   grid-template-columns: 45% auto 20%;
   height: 200px;
-  margin: 40px 20px 0;
+  margin: 16px 0;
   border: 1px solid black;
 `
 
