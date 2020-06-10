@@ -4,7 +4,11 @@ const tariffsData = [
     name: 'allianzTravelVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/allianz_Travel_rei_170x26_20181123.png',
-    uspList: ['Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Abbruch', image: 'icons/green-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/green-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/red-icon.png' },
+    ],
     priceTag: 122.0,
   },
   {
@@ -12,21 +16,34 @@ const tariffsData = [
     name: 'barmeniaDirektVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/barmenia_direkt_rei_170x40_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/yellow-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/green-icon.png' },
+    ],
     priceTag: 84.6,
   },
   {
     resultEntry: 'Ergo Versicherung',
     name: 'ergoVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/ergo_RV_rei_200x126_20190325.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/yellow-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/red-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/green-icon.png' },
+    ],
     priceTag: 89.0,
   },
   {
     resultEntry: 'mdt travel Versicherung',
     name: 'madTravelVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/mdt_rei_170x45_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/red-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/green-icon.png' },
+    ],
     priceTag: 89.0,
   },
   {
@@ -35,6 +52,11 @@ const tariffsData = [
     logoUrl:
       'https://cdn.comparon.de/logos/reiseversicherungen_direkt_rei_169x13_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/green-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/green-icon.png' },
+    ],
     priceTag: 64.0,
   },
   {
@@ -42,28 +64,42 @@ const tariffsData = [
     name: 'travelSecureVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/travel_secure_rei_144x38_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/green-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/green-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/green-icon.png' },
+    ],
     priceTag: 117.0,
   },
   {
     resultEntry: 'Berlin Direkt Versicherung',
     name: 'berlinDirektVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/bd24_rei_170x70_20190221.png',
-    uspList: ['Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/yellow-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/green-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/green-icon.png' },
+    ],
     priceTag: 119.0,
   },
   {
     resultEntry: 'coverwise Versicherung',
     name: 'coverwiseVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/coverwise_rei_170x94_20180103.png',
-    uspList: ['Gepäck'],
+    uspList: [{ riskCover: 'Gepäck', image: 'icons/yellow-icon.png' }],
     priceTag: 106.0,
   },
   {
     resultEntry: 'LTA Versicherung',
     name: 'ltaVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/lta_rei_174x91_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken', 'Gepäck'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/yellow-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/yellow-icon.png' },
+      { riskCover: 'Gepäck', image: 'icons/red-icon.png' },
+    ],
     priceTag: 135.0,
   },
   {
@@ -71,7 +107,11 @@ const tariffsData = [
     name: 'hanseMerkurVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/hanse_merkur_rei_170x40_20161124.png',
-    uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
+    uspList: [
+      { riskCover: 'Rücktritt', image: 'icons/green-icon.png' },
+      { riskCover: 'Abbruch', image: 'icons/green-icon.png' },
+      { riskCover: 'Reisekranken', image: 'icons/green-icon.png' },
+    ],
     priceTag: 125.0,
   },
 ]

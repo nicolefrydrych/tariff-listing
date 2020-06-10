@@ -7,7 +7,6 @@ import SortBar from './SortBar'
 import FilterBar from './FilterBar'
 
 export default function TariffPage() {
-  const [state, setState] = useState(tariffsData)
   const [tariffCards, setTariffCards] = useState(tariffsData)
   const [sortCardsByPrice, setSortCardsByPrice] = useState()
   const [sortCardsByName, setSortCardsByName] = useState()
@@ -19,7 +18,6 @@ export default function TariffPage() {
         <FilterBar
           tariffCards={tariffCards}
           onFilterByContent={handleFilterByContent}
-          clearCheckboxes={clearCheckboxes}
         />
         <SortBar
           onSortCardsByPrice={handleSortCardsByPrice}
@@ -47,10 +45,8 @@ export default function TariffPage() {
     event.currentTarget.checked === true
       ? setTariffCards(clickedCheckbox)
       : setTariffCards(tariffsData)
-  }
-
-  function clearCheckboxes() {
-    setTariffCards(tariffsData)
+    setSortCardsByName('')
+    setSortCardsByPrice('')
   }
 }
 

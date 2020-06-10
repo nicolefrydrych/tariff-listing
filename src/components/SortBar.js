@@ -18,9 +18,9 @@ export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
             </ListItem>
           </DropdownList>
         </ResultSortingText>
-        <PriceButton onClick={() => onSortCardsByPrice()}>
+        <TextLowestPrice onClick={() => onSortCardsByPrice()}>
           Niedrigster Preis
-        </PriceButton>
+        </TextLowestPrice>
       </SortBarContainer>
     </div>
   )
@@ -44,7 +44,7 @@ const DropdownList = styled.ul`
   background: #f2f2f2;
   width: 100%;
   position: absolute;
-  top: 74px;
+  top: 69px;
   border: 1px solid gray;
   border-top: none;
 `
@@ -97,11 +97,10 @@ const ResultSortingText = styled.div`
   }
 `
 
-const PriceButton = styled.button`
-  background: #e2ecf7;
-  color: black;
-  border: 0;
-  outline: none;
+const TextLowestPrice = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   &:hover {
