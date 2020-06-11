@@ -4,6 +4,8 @@ const tariffsData = [
     name: 'allianzTravelVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/allianz_Travel_rei_170x26_20181123.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       {
         riskCover: 'Abbruch',
@@ -29,6 +31,8 @@ const tariffsData = [
     name: 'barmeniaDirektVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/barmenia_direkt_rei_170x40_20161124.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/green-icon.png' },
       { riskCover: 'Abbruch', icon: 'icons/yellow-icon.png' },
@@ -44,6 +48,8 @@ const tariffsData = [
     resultEntry: 'Ergo Versicherung',
     name: 'ergoVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/ergo_RV_rei_200x126_20190325.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/green-icon.png' },
       { riskCover: 'Abbruch', icon: 'icons/yellow-icon.png' },
@@ -60,6 +66,8 @@ const tariffsData = [
     resultEntry: 'mdt travel Versicherung',
     name: 'madTravelVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/mdt_rei_170x45_20161124.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/green-icon.png' },
       { riskCover: 'Abbruch', icon: 'icons/red-icon.png' },
@@ -74,6 +82,8 @@ const tariffsData = [
   {
     resultEntry: 'Reiseversicherungen-direkt Versicherung',
     name: 'reiseversicherungenDirektVersicherung',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     logoUrl:
       'https://cdn.comparon.de/logos/reiseversicherungen_direkt_rei_169x13_20161124.png',
     uspList: ['Rücktritt', 'Abbruch', 'Reisekranken'],
@@ -91,6 +101,8 @@ const tariffsData = [
   {
     resultEntry: 'TravelSecure Versicherung',
     name: 'travelSecureVersicherung',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     logoUrl:
       'https://cdn.comparon.de/logos/travel_secure_rei_144x38_20161124.png',
     uspList: [
@@ -109,6 +121,8 @@ const tariffsData = [
     resultEntry: 'Berlin Direkt Versicherung',
     name: 'berlinDirektVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/bd24_rei_170x70_20190221.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/yellow-icon.png' },
       { riskCover: 'Reisekranken', icon: 'icons/green-icon.png' },
@@ -124,6 +138,8 @@ const tariffsData = [
     resultEntry: 'coverwise Versicherung',
     name: 'coverwiseVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/coverwise_rei_170x94_20180103.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [{ riskCover: 'Gepäck', icon: 'icons/yellow-icon.png' }],
     priceTag: 106,
     priceIcon: 'icons/preisInformation-icon.png',
@@ -135,6 +151,8 @@ const tariffsData = [
     resultEntry: 'LTA Versicherung',
     name: 'ltaVersicherung',
     logoUrl: 'https://cdn.comparon.de/logos/lta_rei_174x91_20161124.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/green-icon.png' },
       { riskCover: 'Abbruch', icon: 'icons/yellow-icon.png' },
@@ -152,6 +170,8 @@ const tariffsData = [
     name: 'hanseMerkurVersicherung',
     logoUrl:
       'https://cdn.comparon.de/logos/hanse_merkur_rei_170x40_20161124.png',
+    TariffDetailText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
     uspList: [
       { riskCover: 'Rücktritt', icon: 'icons/green-icon.png' },
       { riskCover: 'Abbruch', icon: 'icons/green-icon.png' },

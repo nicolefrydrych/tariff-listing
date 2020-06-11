@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 export default function ResultCard({
   resultEntry,
   logoUrl,
+  TariffDetailText,
   uspList,
   priceTag,
   priceIcon,
   deleteIcon,
   priceInformation,
 }) {
+  const [showTariffDetails, setShowTariffDetails] = useState(false)
+
   return (
     <CardGrid>
-      <ResultEntry>{resultEntry}</ResultEntry>
+      <StyledResultEntry>{resultEntry}</StyledResultEntry>
       <StyledImage>
         <img src={logoUrl}></img>
       </StyledImage>
+      <div>
+        <StyledTariffDetails onClick={toggleTariffDetails}>
+          Tarifdetails
+        </StyledTariffDetails>
+        {!showTariffDetails && <ShowDetails></ShowDetails>}
+        {showTariffDetails && <ShowDetailsOnClick></ShowDetailsOnClick>}
+      </div>
       <StyledUspList>
         {uspList.map((upsItem, index) => (
           <div key={index}>
@@ -44,23 +54,29 @@ export default function ResultCard({
           </StyledButtonAntrag>
         </ButtonSection>
       </PriceAndButtonContent>
+      {showTariffDetails && (
+        <StyledTariffDetailText>{TariffDetailText}</StyledTariffDetailText>
+      )}
     </CardGrid>
   )
+
+  function toggleTariffDetails() {
+    setShowTariffDetails(!showTariffDetails)
+  }
 }
 
 const CardGrid = styled.div`
   background: #f2f2f2;
   display: grid;
   grid-gap: 2px;
-  grid-template-rows: 25% auto;
+  grid-template-rows: 50px 120px 30px auto;
   grid-template-columns: 45% auto 25%;
-  height: 200px;
   min-width: 800px;
   margin: 16px 0;
   border: 1px solid lightgray;
 `
 
-const ResultEntry = styled.div`
+const StyledResultEntry = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -80,6 +96,45 @@ const StyledImage = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+const StyledTariffDetails = styled.div`
+  color: #005ea8;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const ShowDetails = styled.span`
+  border-left: 4.5px solid transparent;
+  border-top: 5px solid #005ea8;
+  border-right: 4.5px solid transparent;
+  margin-left: 5px;
+  position: relative;
+  left: 46px;
+  bottom: 6px;
+`
+
+const ShowDetailsOnClick = styled.span`
+  border-left: 4.5px solid transparent;
+  border-bottom: 5px solid #005ea8;
+  border-right: 4.5px solid transparent;
+  margin-left: 5px;
+  position: relative;
+  left: 46px;
+  bottom: 32px;
+`
+
+const StyledTariffDetailText = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  background: #f2f2f2;
+  padding: 10px 40px 20px;
+  display: flex;
+  align-self: flex-start;
+`
+
 const StyledRiskCoverIcon = styled.img`
   max-width: 20px;
   max-height: 20px;
@@ -107,7 +162,7 @@ const PriceAndButtonContent = styled.div`
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -159,7 +214,7 @@ const StyledPriceInformationIcon = styled.img`
   max-width: 16px;
   max-height: 16px;
   position: relative;
-  bottom: 23px;
+  bottom: 27px;
   left: 60px;
 `
 
