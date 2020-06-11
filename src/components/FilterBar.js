@@ -91,6 +91,7 @@ const FilterBarContainer = styled.div`
   grid-row-end: 3;
   text-align: center;
   border: 1px solid grey;
+  min-width: 240px;
 `
 
 const FilterBarHeadline = styled.h3`

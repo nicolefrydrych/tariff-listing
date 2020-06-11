@@ -35,8 +35,9 @@ const SortBarContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   height: 100%;
+  min-width: 800px;
 `
 const DropdownList = styled.ul`
   display: none;
