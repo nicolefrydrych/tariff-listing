@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export default function FilterBar({
-  onFilterByContent,
-  tariffCards,
-  clearCheckboxes,
-}) {
+export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
   const [isChecked, setIsChecked] = useState(true)
 
   return (
@@ -19,10 +15,9 @@ export default function FilterBar({
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onClick={handleRücktrittClick}
-            unchecked={isChecked}
           />
 
-          <label>Rücktritt</label>
+          <StyledLabel>Rücktritt</StyledLabel>
         </section>
         <span>logo2</span>
         <section>
@@ -30,9 +25,8 @@ export default function FilterBar({
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onClick={handleAbbruchClick}
-            unchecked={isChecked}
           />
-          <label>Abbruch</label>
+          <StyledLabel>Abbruch</StyledLabel>
         </section>
         <span>logo3</span>
         <section>
@@ -40,9 +34,8 @@ export default function FilterBar({
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onClick={handleReisekrankenClick}
-            unchecked={isChecked}
           />
-          <label>Reisekranken</label>
+          <StyledLabel>Reisekranken</StyledLabel>
         </section>
         <span>logo4</span>
         <section>
@@ -50,9 +43,8 @@ export default function FilterBar({
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onChange={handleGepäckClick}
-            unchecked={isChecked}
           />
-          <label>Gepäck</label>
+          <StyledLabel>Gepäck</StyledLabel>
         </section>
         <span>logo5</span>
       </FilterBarGrid>
@@ -61,31 +53,32 @@ export default function FilterBar({
 
   function handleRücktrittClick(event) {
     const filterForRücktritt = tariffCards.filter((tariffCard) =>
-      tariffCard.uspList.includes('Rücktritt')
+      tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Rücktritt')
     )
-    onFilterByContent(filterForRücktritt, event)
+    onFilterCardsByContent(filterForRücktritt, event)
     setIsChecked(!isChecked)
   }
 
   function handleAbbruchClick(event) {
     const filterForAbbruch = tariffCards.filter((tariffCard) =>
-      tariffCard.uspList.includes('Abbruch')
+      tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
-    onFilterByContent(filterForAbbruch, event)
+
+    onFilterCardsByContent(filterForAbbruch, event)
     setIsChecked(!isChecked)
   }
   function handleReisekrankenClick(event) {
     const filterForReisekranken = tariffCards.filter((tariffCard) =>
-      tariffCard.uspList.includes('Reisekranken')
+      tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
     )
-    onFilterByContent(filterForReisekranken, event)
+    onFilterCardsByContent(filterForReisekranken, event)
     setIsChecked(!isChecked)
   }
   function handleGepäckClick(event) {
     const filterForGepäck = tariffCards.filter((tariffCard) =>
-      tariffCard.uspList.includes('Gepäck')
+      tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
     )
-    onFilterByContent(filterForGepäck, event)
+    onFilterCardsByContent(filterForGepäck, event)
     setIsChecked(!isChecked)
   }
 }
@@ -98,6 +91,7 @@ const FilterBarContainer = styled.div`
   grid-row-end: 3;
   text-align: center;
   border: 1px solid grey;
+  min-width: 240px;
 `
 
 const FilterBarHeadline = styled.h3`
@@ -117,9 +111,8 @@ const FilterBarGrid = styled.div`
   white-space: nowrap;
 `
 
-const StyledButton = styled.button`
-  background: #e5ecff;
-  color: black;
-  border: 0;
-  outline: none;
+const StyledLabel = styled.label`
+  &:hover {
+    color: black;
+  }
 `

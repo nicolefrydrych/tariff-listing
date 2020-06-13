@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: 'Gill Sans'; 
     font-size: 18px;
+    color: #4d4e4f;
   }
 `
 
