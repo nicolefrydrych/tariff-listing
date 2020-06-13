@@ -1,61 +1,67 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export default function ResultCard({
-  resultEntry,
-  logoUrl,
-  TariffDetailText,
-  uspList,
-  priceTag,
-  priceIcon,
-  deleteIcon,
-  priceInformation,
-}) {
+export default function ResultCard({ tariff }) {
   const [showTariffDetails, setShowTariffDetails] = useState(false)
+  const [priceInformationShown, setPriceInformationShown] = useState(false)
 
   return (
     <CardGrid>
-      <StyledResultEntry>{resultEntry}</StyledResultEntry>
-      <StyledImage>
-        <img src={logoUrl}></img>
-      </StyledImage>
+      <ResultEntry>{tariff.resultEntry}</ResultEntry>
+      <InsuranceName>
+        <img src={tariff.logoUrl}></img>
+      </InsuranceName>
       <div>
-        <StyledTariffDetails onClick={toggleTariffDetails}>
+        <TariffDetails onClick={toggleTariffDetails}>
           Tarifdetails
-        </StyledTariffDetails>
+        </TariffDetails>
         {!showTariffDetails && <ShowDetails></ShowDetails>}
-        {showTariffDetails && <ShowDetailsOnClick></ShowDetailsOnClick>}
+        {showTariffDetails && <ShowClickedDetails></ShowClickedDetails>}
       </div>
-      <StyledUspList>
-        {uspList.map((upsItem, index) => (
+      <UspList>
+        {tariff.uspList.map((upsItem, index) => (
           <div key={index}>
             <StyledRiskCoverIcon src={upsItem.icon}></StyledRiskCoverIcon>
             <StyledRiskCover>{upsItem.riskCover}</StyledRiskCover>
           </div>
         ))}
-      </StyledUspList>
-      <PriceAndButtonContent>
-        <StyledPriceTag>{priceTag},00€</StyledPriceTag>
-        <PriceSection>
-          <StyledPriceInformationIcon
-            src={priceIcon}
-          ></StyledPriceInformationIcon>
-          <RemoveInformation src={deleteIcon}></RemoveInformation>
-          <StyledPriceInformationOnHover>
-            {priceInformation}
-          </StyledPriceInformationOnHover>
-        </PriceSection>
+      </UspList>
+      <PriceButtonContainer>
+        <PriceTag>{tariff.priceTag},00€</PriceTag>
+
+        <PriceInformationIcon
+          onMouseEnter={() => setPriceInformationShown(true)}
+          onMouseLeave={() => setPriceInformationShown(false)}
+          src={tariff.priceIcon}
+        ></PriceInformationIcon>
+        {priceInformationShown && (
+          <div
+            onMouseEnter={() => setPriceInformationShown(true)}
+            onMouseLeave={() => setPriceInformationShown(false)}
+          >
+            <CloseIconAdditionalPriceInformation
+              onClick={() => setPriceInformationShown(false)}
+              src={tariff.deleteIcon}
+            ></CloseIconAdditionalPriceInformation>
+
+            <AdditionalPriceInformation>
+              {tariff.priceInformation}
+            </AdditionalPriceInformation>
+          </div>
+        )}
         <ButtonSection>
-          <StyledButtonAngebot href="https://reiseversicherung.check24.de/desktop/offer/check24/contact/603d14744a8669881d634f84481d5353">
+          <StyledButtonTop href="https://reiseversicherung.check24.de/desktop/offer/check24/contact/603d14744a8669881d634f84481d5353">
             Angebot »
-          </StyledButtonAngebot>
-          <StyledButtonAntrag href="https://reiseversicherung.check24.de/desktop/closure/check24/login/5050623632f9f692a4578103b508f852">
+          </StyledButtonTop>
+          <StyledButtonBottom href="https://reiseversicherung.check24.de/desktop/closure/check24/login/5050623632f9f692a4578103b508f852">
             Online Antrag »
-          </StyledButtonAntrag>
+          </StyledButtonBottom>
         </ButtonSection>
-      </PriceAndButtonContent>
+      </PriceButtonContainer>
       {showTariffDetails && (
-        <StyledTariffDetailText>{TariffDetailText}</StyledTariffDetailText>
+        <StyledTariffDetailText>
+          {tariff.TariffDetailText}
+        </StyledTariffDetailText>
       )}
     </CardGrid>
   )
@@ -69,14 +75,14 @@ const CardGrid = styled.div`
   background: #f2f2f2;
   display: grid;
   grid-gap: 2px;
-  grid-template-rows: 50px 120px 30px auto;
+  grid-template-rows: 50px 125px 25px auto;
   grid-template-columns: 45% auto 25%;
   min-width: 800px;
-  margin: 16px 0;
+  margin-bottom: 24px;
   border: 1px solid lightgray;
 `
 
-const StyledResultEntry = styled.div`
+const ResultEntry = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -87,7 +93,7 @@ const StyledResultEntry = styled.div`
   font-size: 20px;
 `
 
-const StyledImage = styled.div`
+const InsuranceName = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -97,7 +103,7 @@ const StyledImage = styled.div`
   align-items: center;
 `
 
-const StyledTariffDetails = styled.div`
+const TariffDetails = styled.div`
   color: #005ea8;
   &:hover {
     text-decoration: underline;
@@ -114,7 +120,7 @@ const ShowDetails = styled.span`
   bottom: 6px;
 `
 
-const ShowDetailsOnClick = styled.span`
+const ShowClickedDetails = styled.span`
   border-left: 4.5px solid transparent;
   border-bottom: 5px solid #005ea8;
   border-right: 4.5px solid transparent;
@@ -143,7 +149,7 @@ const StyledRiskCoverIcon = styled.img`
   left: 0;
 `
 
-const StyledUspList = styled.ul`
+const UspList = styled.ul`
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -158,7 +164,7 @@ const StyledRiskCover = styled.li`
   margin-left: 25px;
 `
 
-const PriceAndButtonContent = styled.div`
+const PriceButtonContainer = styled.div`
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -172,45 +178,36 @@ const PriceAndButtonContent = styled.div`
   position: relative;
 `
 
-const StyledPriceTag = styled.div`
+const PriceTag = styled.div`
   margin-top: 16px;
   color: #005ea8;
   font-size: 24px;
   font-weight: bold;
 `
-const StyledPriceInformationOnHover = styled.p`
-  display: none;
+const AdditionalPriceInformation = styled.p`
+  z-index: 1;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  border: 1px solid #005ea8;
+  background: white;
+  min-width: 200px;
+  max-width: 220px;
+  height: 140px;
+  padding: 24px;
 `
-const RemoveInformation = styled.img`
-  display: none;
-`
-
-const PriceSection = styled.div`
-  &:hover ${StyledPriceInformationOnHover} {
-    display: block;
-    z-index: 1;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    border: 1px solid #005ea8;
-    background: white;
-    min-width: 200px;
-    max-width: 220px;
-    height: 140px;
-    padding: 24px;
-  }
-  &:hover ${RemoveInformation} {
-    display: block;
-    z-index: 2;
-    position: absolute;
-    top: 48px;
-    right: 10px;
-    width: 16px;
-    height: 16px;
-  }
+const CloseIconAdditionalPriceInformation = styled.img`
+  z-index: 2;
+  position: absolute;
+  top: 48px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
 `
 
-const StyledPriceInformationIcon = styled.img`
+const PriceSection = styled.div``
+
+const PriceInformationIcon = styled.img`
   max-width: 16px;
   max-height: 16px;
   position: relative;
@@ -223,7 +220,7 @@ const ButtonSection = styled.div`
   flex-direction: column;
 `
 
-const StyledButtonAngebot = styled.a`
+const StyledButtonTop = styled.a`
   padding: 4px 16px;
   margin: 10px 0;
   background: #d6d4d3;
@@ -235,7 +232,7 @@ const StyledButtonAngebot = styled.a`
   }
 `
 
-const StyledButtonAntrag = styled.a`
+const StyledButtonBottom = styled.a`
   padding: 8px 16px;
   background: #4374c2;
   color: white;
