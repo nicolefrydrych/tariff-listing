@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export default function FilterBar({ onFilterByContent, tariffCards }) {
+export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
   const [isChecked, setIsChecked] = useState(true)
 
   return (
@@ -55,7 +55,7 @@ export default function FilterBar({ onFilterByContent, tariffCards }) {
     const filterForRücktritt = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Rücktritt')
     )
-    onFilterByContent(filterForRücktritt, event)
+    onFilterCardsByContent(filterForRücktritt, event)
     setIsChecked(!isChecked)
   }
 
@@ -64,21 +64,21 @@ export default function FilterBar({ onFilterByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
 
-    onFilterByContent(filterForAbbruch, event)
+    onFilterCardsByContent(filterForAbbruch, event)
     setIsChecked(!isChecked)
   }
   function handleReisekrankenClick(event) {
     const filterForReisekranken = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
     )
-    onFilterByContent(filterForReisekranken, event)
+    onFilterCardsByContent(filterForReisekranken, event)
     setIsChecked(!isChecked)
   }
   function handleGepäckClick(event) {
     const filterForGepäck = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
     )
-    onFilterByContent(filterForGepäck, event)
+    onFilterCardsByContent(filterForGepäck, event)
     setIsChecked(!isChecked)
   }
 }

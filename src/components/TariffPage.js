@@ -17,7 +17,7 @@ export default function TariffPage() {
       <TariffPageGrid>
         <FilterBar
           tariffCards={tariffCards}
-          onFilterByContent={handleFilterByContent}
+          onFilterCardsByContent={handleFilterCardsByContent}
         />
         <SortBar
           onSortCardsByPrice={handleSortCardsByPrice}
@@ -41,7 +41,7 @@ export default function TariffPage() {
     setSortCardsByName(event.target.innerHTML)
   }
 
-  function handleFilterByContent(clickedCheckbox, event) {
+  function handleFilterCardsByContent(clickedCheckbox, event) {
     event.currentTarget.checked === true
       ? setTariffCards(clickedCheckbox)
       : setTariffCards(tariffsData)
