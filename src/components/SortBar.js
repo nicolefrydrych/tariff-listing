@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
+  const [azActive, setAzActive] = useState(false)
+  const [priceActive, setpriceActive] = useState(false)
+
   return (
     <div>
       <SortBarContainer>
-        <ResultSortingText>
-          <div>Anbieter </div>
+        <SortByName background={azActive} onClick={handleAzActive}>
+          <SortByNameText>Anbieter</SortByNameText>
           <SortResult></SortResult>
           <SortResultOnHover></SortResultOnHover>
           <DropdownList>
@@ -17,75 +20,91 @@ export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
               Anbieter: Z-A
             </ListItem>
           </DropdownList>
-        </ResultSortingText>
-        <TextLowestPrice onClick={() => onSortCardsByPrice()}>
+        </SortByName>
+
+        <SortByPriceText
+          background={priceActive}
+          onClick={() => {
+            onSortCardsByPrice()
+            handlePriceActive()
+          }}
+        >
           Niedrigster Preis
-        </TextLowestPrice>
+        </SortByPriceText>
       </SortBarContainer>
     </div>
   )
+  function handleAzActive() {
+    setAzActive(!azActive)
+    setpriceActive(false)
+  }
+
+  function handlePriceActive() {
+    setpriceActive(!priceActive)
+    setAzActive(false)
+  }
 }
 
 const SortBarContainer = styled.div`
-  background: #e2ecf7;
+  border: 1px solid lightgray;
+  display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid lightgray;
-  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  line-height: 60px;
   min-width: 800px;
 `
 const DropdownList = styled.ul`
+  background: white;
+  border: 1px solid lightgrey;
+  border-top: none;
+  cursor: pointer;
   display: none;
   list-style: none;
-  background: #f2f2f2;
-  width: 100%;
   position: absolute;
-  top: 69px;
-  border: 1px solid gray;
-  border-top: none;
+  top: 61px;
+  width: 100.5%;
 `
 
 const ListItem = styled.li`
+  line-height: 45px;
   text-align: center;
-  padding: 10px;
   &:hover {
-    background: #939393;
+    background: #d1cfce;
   }
 `
 
 const SortResult = styled.span`
   border-left: 4.5px solid transparent;
-  border-top: 5px solid #005ea8;
   border-right: 4.5px solid transparent;
+  border-top: 5px solid #005ea8;
   margin-left: 5px;
+  position: absolute;
+  right: 215px;
+  top: 28px;
 `
 
 const SortResultOnHover = styled.span`
-  border-left: 4.5px solid transparent;
   border-bottom: 5px solid #005ea8;
+  border-left: 4.5px solid transparent;
   border-right: 4.5px solid transparent;
-  margin-left: 5px;
   display: none;
+  margin-left: 5px;
+  position: absolute;
+  right: 215px;
+  top: 28px;
 `
 
-const ResultSortingText = styled.div`
-  background: #e2ecf7;
-  color: black;
-  border: 0;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  position: relative;
+const SortByName = styled.div`
+  background: ${(props) => (props.background ? '#d5d9e0' : '#e2ecf7')};
+  cursor: pointer;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: relative;
   &:hover {
-    background-color: lightgray;
+    background-color: #d9e2eb;
   }
   &:hover ${DropdownList} {
     display: block;
@@ -97,14 +116,18 @@ const ResultSortingText = styled.div`
     display: block;
   }
 `
+const SortByNameText = styled.div`
+  color: #005ea8;
+`
 
-const TextLowestPrice = styled.div`
+const SortByPriceText = styled.div`
+  background: ${(props) => (props.background ? '#d5d9e0' : '#e2ecf7')};
+  border-left: 1px solid lightgrey;
+  color: #005ea8;
+  cursor: pointer;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
   &:hover {
-    background-color: lightgray;
+    background-color: #d9e2eb;
   }
 `
