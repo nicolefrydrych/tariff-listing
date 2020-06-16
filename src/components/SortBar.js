@@ -114,10 +114,10 @@ const SortByName = styled.div`
   &:hover ${DropdownList} {
     display: block;
   }
-  &:hover ${SortResult} {
+  &:hover ${SortResultBefore} {
     display: none;
   }
-  &:hover ${SortResultOnHover} {
+  &:hover ${SortResultAfter} {
     display: block;
   }
 `
