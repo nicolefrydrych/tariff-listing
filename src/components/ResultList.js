@@ -12,7 +12,7 @@ export default function ResultList({
       <ResultContainer>
         {sortMethod(sortCardsByPrice, sortCardsByName).map((tariff, name) => (
           <div key={name}>
-            <ResultCard tariff={tariff} />
+            <ResultCard {...tariff} />
           </div>
         ))}
       </ResultContainer>

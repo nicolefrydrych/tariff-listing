@@ -9,9 +9,11 @@ export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
     <div>
       <SortBarContainer>
         <SortByName background={azActive} onClick={handleAzActive}>
-          <SortByNameText>Anbieter</SortByNameText>
-          <SortResult></SortResult>
-          <SortResultOnHover></SortResultOnHover>
+          <ResultSortingItem>
+            <SortByNameText>Anbieter</SortByNameText>
+            <SortResultBefore></SortResultBefore>
+            <SortResultAfter></SortResultAfter>
+          </ResultSortingItem>
           <DropdownList>
             <ListItem onClick={(event) => onSortCardsByName(event)}>
               Anbieter: A-Z
@@ -21,7 +23,6 @@ export default function SortBar({ onSortCardsByPrice, onSortCardsByName }) {
             </ListItem>
           </DropdownList>
         </SortByName>
-
         <SortByPriceText
           background={priceActive}
           onClick={() => {
@@ -76,25 +77,29 @@ const ListItem = styled.li`
   }
 `
 
-const SortResult = styled.span`
+const ResultSortingItem = styled.div`
+  position: relative;
+`
+
+const SortResultBefore = styled.span`
   border-left: 4.5px solid transparent;
   border-right: 4.5px solid transparent;
   border-top: 5px solid #005ea8;
   margin-left: 5px;
   position: absolute;
-  right: 215px;
-  top: 28px;
+  right: -15px;
+  top: 30px;
 `
 
-const SortResultOnHover = styled.span`
+const SortResultAfter = styled.span`
   border-bottom: 5px solid #005ea8;
   border-left: 4.5px solid transparent;
   border-right: 4.5px solid transparent;
   display: none;
   margin-left: 5px;
   position: absolute;
-  right: 215px;
-  top: 28px;
+  right: -15px;
+  top: 30px;
 `
 
 const SortByName = styled.div`
