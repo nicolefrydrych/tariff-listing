@@ -63,10 +63,10 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
     const filterForAbbruch = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
-
     onFilterCardsByContent(filterForAbbruch, event)
     setIsChecked(!isChecked)
   }
+
   function handleReisekrankenClick(event) {
     const filterForReisekranken = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
@@ -74,6 +74,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
     onFilterCardsByContent(filterForReisekranken, event)
     setIsChecked(!isChecked)
   }
+
   function handleGepäckClick(event) {
     const filterForGepäck = tariffCards.filter((tariffCard) =>
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
