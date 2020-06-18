@@ -24,8 +24,9 @@ const StyledButtonTop = styled.a`
   border: 1px solid lightgrey;
   border-radius: 4px;
   margin: 10px 0;
-  padding: 4px 16px;
+  padding: 4px 36px;
   text-decoration: none;
+  width: 100%;
   &:hover {
     background: #c4c2c1;
   }
@@ -36,8 +37,9 @@ const StyledButtonBottom = styled.a`
   border: 1px solid lightgrey;
   border-radius: 4px;
   color: white;
-  padding: 8px 16px;
+  padding: 12px 36px;
   text-decoration: none;
+  width: 100%;
   &:hover {
     background: #3b63a3;
   }

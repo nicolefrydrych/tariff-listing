@@ -57,7 +57,7 @@ const CardGrid = styled.div`
   border: 1px solid lightgray;
   display: grid;
   grid-gap: 2px;
-  grid-template-columns: 45% auto 25%;
+  grid-template-columns: 45% auto 28%;
   grid-template-rows: 50px 125px 25px auto;
   margin-bottom: 24px;
   min-width: 800px;
@@ -67,7 +67,7 @@ const CardGrid = styled.div`
 `
 
 const PriceButtonSection = styled.div`
-  align-items: center;
+  align-items: flex-end;
   border-left: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,6 @@ const PriceButtonSection = styled.div`
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
-  margin: 20px 0;
+  margin: 20px 10px;
   position: relative;
 `

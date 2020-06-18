@@ -6,19 +6,24 @@ export default function TariffDetailsButton({
   showTariffDetails,
 }) {
   return (
-    <div>
+    <TariffDetailsSection>
       <TariffDetails onClick={toggleTariffDetails}>Tarifdetails</TariffDetails>
       {!showTariffDetails && <TariffDetailsHidden></TariffDetailsHidden>}
       {showTariffDetails && <TariffDetailsVisible></TariffDetailsVisible>}
-    </div>
+    </TariffDetailsSection>
   )
 }
 
-const TariffDetails = styled.div`
-  color: #005ea8;
+const TariffDetailsSection = styled.div`
+  cursor: pointer;
+  margin: auto;
   &:hover {
     text-decoration: underline;
   }
+`
+
+const TariffDetails = styled.div`
+  color: #005ea8;
 `
 const TariffDetailsHidden = styled.span`
   border-left: 4.5px solid transparent;

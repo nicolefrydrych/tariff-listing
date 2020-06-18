@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import CoveredRiskInformtion from './CoveredRiskInformtion'
 
 export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
-  const [isChecked, setIsChecked] = useState(true)
+  const [isChecked, setIsChecked] = useState()
 
   return (
-    <FilterBarContainer>
-      <FilterBarHeadline>Gewählter Schutz</FilterBarHeadline>
-      <FilterBarGrid>
+    <CoveredRisksContainer>
+      <CoveredRisksHeadline>Gewählter Schutz</CoveredRisksHeadline>
+      <CoveredRisksTitel>
         <div>Versicherte Bereiche</div>
-        <span>logo1</span>
+        <CoveredRiskInformtion />
+      </CoveredRisksTitel>
+      <InputRiskGroup>
         <section>
           <input
             type="checkbox"
@@ -17,38 +20,44 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
             onClick={handleRücktrittClick}
           />
 
-          <StyledLabel>Rücktritt</StyledLabel>
+          <CancellationType>Rücktritt</CancellationType>
         </section>
-        <span>logo2</span>
+        <CoveredRiskIcon src="icons/plane-icon.png"></CoveredRiskIcon>
+      </InputRiskGroup>
+      <InputRiskGroup>
         <section>
           <input
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onClick={handleAbbruchClick}
           />
-          <StyledLabel>Abbruch</StyledLabel>
+          <CancellationType>Abbruch</CancellationType>
         </section>
-        <span>logo3</span>
+        <CoveredRiskIcon src="icons/island-icon.png"></CoveredRiskIcon>
+      </InputRiskGroup>
+      <InputRiskGroup>
         <section>
           <input
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onClick={handleReisekrankenClick}
           />
-          <StyledLabel>Reisekranken</StyledLabel>
+          <CancellationType>Reisekranken</CancellationType>
         </section>
-        <span>logo4</span>
+        <CoveredRiskIcon src="icons/heart-icon.png"></CoveredRiskIcon>
+      </InputRiskGroup>
+      <InputRiskGroup>
         <section>
           <input
             type="checkbox"
             onChange={(event) => setIsChecked(event.currentTarget.checked)}
             onChange={handleGepäckClick}
           />
-          <StyledLabel>Gepäck</StyledLabel>
+          <CancellationType>Gepäck</CancellationType>
         </section>
-        <span>logo5</span>
-      </FilterBarGrid>
-    </FilterBarContainer>
+        <CoveredRiskIcon src="icons/suitcase-icon.png"></CoveredRiskIcon>
+      </InputRiskGroup>
+    </CoveredRisksContainer>
   )
 
   function handleRücktrittClick(event) {
@@ -56,7 +65,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Rücktritt')
     )
     onFilterCardsByContent(filterForRücktritt, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleAbbruchClick(event) {
@@ -64,7 +73,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
     onFilterCardsByContent(filterForAbbruch, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleReisekrankenClick(event) {
@@ -72,7 +81,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
     )
     onFilterCardsByContent(filterForReisekranken, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleGepäckClick(event) {
@@ -80,40 +89,46 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
     )
     onFilterCardsByContent(filterForGepäck, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 }
 
-const FilterBarContainer = styled.div`
+const CoveredRisksContainer = styled.div`
   background: #e5ecff;
+  border: 1px solid grey;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  text-align: center;
-  border: 1px solid grey;
   min-width: 240px;
+  position: relative;
+  text-align: center;
 `
 
-const FilterBarHeadline = styled.h3`
-  text-align: center;
+const CoveredRisksHeadline = styled.h3`
   border-bottom: 1px solid grey;
   padding: 16px 0;
+  text-align: center;
 `
 
-const FilterBarGrid = styled.div`
-  display: grid;
-  column-gap: 20%;
-  row-gap: 20px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 60% auto;
-  justify-items: start;
-  margin: 20px;
-  white-space: nowrap;
+const CoveredRisksTitel = styled.div`
+  display: flex;
+  margin: 20px 10px;
 `
 
-const StyledLabel = styled.label`
+const CancellationType = styled.label`
   &:hover {
     color: black;
   }
+`
+
+const InputRiskGroup = styled.div`
+  display: flex;
+  margin: 20px 10px;
+`
+const CoveredRiskIcon = styled.img`
+  background-color: #e5ecff;
+  height: 22px;
+  margin-left: auto;
+  width: 22px;
 `
