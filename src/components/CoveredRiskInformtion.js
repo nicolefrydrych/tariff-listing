@@ -69,7 +69,7 @@ const AdditionalCoveredRiskInformation = styled.div`
   position: absolute;
   right: -530px;
   text-align: left;
-  top: 10px;
+  top: 70px;
   width: 520px;
   z-index: 1;
 

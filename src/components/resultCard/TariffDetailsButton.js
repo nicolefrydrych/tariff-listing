@@ -19,6 +19,7 @@ const TariffDetailsSection = styled.div`
   margin: auto;
   &:hover {
     text-decoration: underline;
+    color: #005ea8;
   }
 `
 

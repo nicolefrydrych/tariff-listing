@@ -59,6 +59,7 @@ const CardGrid = styled.div`
   grid-gap: 2px;
   grid-template-columns: 45% auto 28%;
   grid-template-rows: 50px 125px 25px auto;
+  height: 100%;
   margin-bottom: 24px;
   min-width: 800px;
   &:hover {

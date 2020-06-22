@@ -39,12 +39,12 @@ export default function ResultList({
 }
 
 const ResultContainer = styled.section`
+  display: flex;
+  flex-direction: column;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
-  grid-row-end: 4;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  grid-row-end: 3;
   padding-bottom: 16px;
+  text-align: center;
 `
