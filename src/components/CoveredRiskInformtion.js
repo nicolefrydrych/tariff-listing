@@ -7,7 +7,9 @@ export default function CoveredRiskInformtion() {
     setCoveredRiskInformationShown,
   ] = useState(false)
   return (
-    <CoveredRiskInformationContainer>
+    <CoveredRiskInformationContainer
+      onClick={() => setCoveredRiskInformationShown(false)}
+    >
       <CoveredRiskHelpIcon
         onMouseEnter={() => setCoveredRiskInformationShown(true)}
         onMouseLeave={() => setCoveredRiskInformationShown(false)}
