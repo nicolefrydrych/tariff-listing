@@ -7,10 +7,14 @@ import RiskCoverList from './resultCard/RiskCoverList'
 import PriceInformation from './resultCard/PriceInformation'
 import Button from './resultCard/Button'
 import TariffDetails from './resultCard/TariffDetails'
+import StarRating from './resultCard/StarRating'
 
 export default function ResultCard({
   insuranceName,
   logoUrl,
+  starRating,
+  averageRating,
+  ratingCount,
   uspList,
   priceTag,
   priceIcon,
@@ -44,6 +48,11 @@ export default function ResultCard({
       <TariffDetails
         showTariffDetails={showTariffDetails}
         tariffDetailsText={tariffDetailsText}
+      />
+      <StarRating
+        starRating={starRating}
+        averageRating={averageRating}
+        ratingCount={ratingCount}
       />
     </CardGrid>
   )
