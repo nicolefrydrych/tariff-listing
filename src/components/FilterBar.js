@@ -1,54 +1,80 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import CoveredRiskInformtion from './CoveredRiskInformtion'
 
 export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
-  const [isChecked, setIsChecked] = useState(true)
+  const [isChecked, setIsChecked] = useState()
 
   return (
-    <FilterBarContainer>
-      <FilterBarHeadline>Gewählter Schutz</FilterBarHeadline>
-      <FilterBarGrid>
-        <div>Versicherte Bereiche</div>
-        <span>logo1</span>
-        <section>
-          <input
-            type="checkbox"
-            onChange={(event) => setIsChecked(event.currentTarget.checked)}
-            onClick={handleRücktrittClick}
-          />
+    <CoveredRisksContainer>
+      <CoveredRisksSection>
+        <CoveredRisksHeadline>Gewählter Schutz</CoveredRisksHeadline>
+        <CoveredPeriodSection>
+          <CoveredPeriodButton
+            background={'#e5f3d4'}
+            border={'#74b51d'}
+            backgroundOnHover={'#dce6c8'}
+          >
+            <CoveredPeriod color={'#74b51d'}>Jahresschutz</CoveredPeriod>
+            <CheapestYearlyCoveredPrice>ab 29,00€</CheapestYearlyCoveredPrice>
+          </CoveredPeriodButton>
+          <CoveredPeriodButton>
+            <CoveredPeriod>Einmalschutz</CoveredPeriod>
+            <CoveredPeriodInformationIcon src="icons/preisInformation-icon.png"></CoveredPeriodInformationIcon>
+          </CoveredPeriodButton>
+        </CoveredPeriodSection>
+        <CoveredRisksTitel>
+          <div>Versicherte Bereiche</div>
 
-          <StyledLabel>Rücktritt</StyledLabel>
-        </section>
-        <span>logo2</span>
-        <section>
-          <input
-            type="checkbox"
-            onChange={(event) => setIsChecked(event.currentTarget.checked)}
-            onClick={handleAbbruchClick}
-          />
-          <StyledLabel>Abbruch</StyledLabel>
-        </section>
-        <span>logo3</span>
-        <section>
-          <input
-            type="checkbox"
-            onChange={(event) => setIsChecked(event.currentTarget.checked)}
-            onClick={handleReisekrankenClick}
-          />
-          <StyledLabel>Reisekranken</StyledLabel>
-        </section>
-        <span>logo4</span>
-        <section>
-          <input
-            type="checkbox"
-            onChange={(event) => setIsChecked(event.currentTarget.checked)}
-            onChange={handleGepäckClick}
-          />
-          <StyledLabel>Gepäck</StyledLabel>
-        </section>
-        <span>logo5</span>
-      </FilterBarGrid>
-    </FilterBarContainer>
+          <CoveredRiskInformtion />
+        </CoveredRisksTitel>
+        <InputRiskGroup>
+          <section>
+            <input
+              type="checkbox"
+              onChange={(event) => setIsChecked(event.currentTarget.checked)}
+              onClick={handleRücktrittClick}
+            />
+
+            <CancellationType>Rücktritt</CancellationType>
+          </section>
+          <CoveredRiskIcon src="icons/plane-icon.png"></CoveredRiskIcon>
+        </InputRiskGroup>
+        <InputRiskGroup>
+          <section>
+            <input
+              type="checkbox"
+              onChange={(event) => setIsChecked(event.currentTarget.checked)}
+              onClick={handleAbbruchClick}
+            />
+            <CancellationType>Abbruch</CancellationType>
+          </section>
+          <CoveredRiskIcon src="icons/island-icon.png"></CoveredRiskIcon>
+        </InputRiskGroup>
+        <InputRiskGroup>
+          <section>
+            <input
+              type="checkbox"
+              onChange={(event) => setIsChecked(event.currentTarget.checked)}
+              onClick={handleReisekrankenClick}
+            />
+            <CancellationType>Reisekranken</CancellationType>
+          </section>
+          <CoveredRiskIcon src="icons/heart-icon.png"></CoveredRiskIcon>
+        </InputRiskGroup>
+        <InputRiskGroup>
+          <section>
+            <input
+              type="checkbox"
+              onChange={(event) => setIsChecked(event.currentTarget.checked)}
+              onChange={handleGepäckClick}
+            />
+            <CancellationType>Gepäck</CancellationType>
+          </section>
+          <CoveredRiskIcon src="icons/suitcase-icon.png"></CoveredRiskIcon>
+        </InputRiskGroup>
+      </CoveredRisksSection>
+    </CoveredRisksContainer>
   )
 
   function handleRücktrittClick(event) {
@@ -56,7 +82,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Rücktritt')
     )
     onFilterCardsByContent(filterForRücktritt, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleAbbruchClick(event) {
@@ -64,7 +90,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
     onFilterCardsByContent(filterForAbbruch, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleReisekrankenClick(event) {
@@ -72,7 +98,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
     )
     onFilterCardsByContent(filterForReisekranken, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 
   function handleGepäckClick(event) {
@@ -80,40 +106,88 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
     )
     onFilterCardsByContent(filterForGepäck, event)
-    setIsChecked(!isChecked)
+    setIsChecked(isChecked)
   }
 }
 
-const FilterBarContainer = styled.div`
-  background: #e5ecff;
+const CoveredRisksContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  text-align: center;
-  border: 1px solid grey;
   min-width: 240px;
+  z-index: 1;
 `
 
-const FilterBarHeadline = styled.h3`
+const CoveredRisksSection = styled.div`
+  background: #e5ecff;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+`
+
+const CoveredRisksHeadline = styled.h3`
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 16px;
+  padding: 12px 0;
   text-align: center;
-  border-bottom: 1px solid grey;
-  padding: 16px 0;
 `
 
-const FilterBarGrid = styled.div`
-  display: grid;
-  column-gap: 20%;
-  row-gap: 20px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 60% auto;
-  justify-items: start;
-  margin: 20px;
-  white-space: nowrap;
+const CoveredPeriodSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+`
+const CoveredPeriodButton = styled.div`
+  background-color: ${(props) => props.background || '#fafafa'};
+  border-color: ${(props) => props.border || 'lightgrey'};
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px 1px 2px 1px;
+  cursor: pointer;
+  height: 44px;
+  line-height: 20px;
+  margin: 0 8px;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    background: ${(props) => props.backgroundOnHover || '#f0f0f0'};
+  }
 `
 
-const StyledLabel = styled.label`
+const CoveredPeriod = styled.div`
+  color: ${(props) => props.color || '#4d4e4f'};
+  font-size: 14px;
+`
+
+const CheapestYearlyCoveredPrice = styled.span`
+  color: #74b51d;
+  font-size: 12px;
+`
+
+const CoveredPeriodInformationIcon = styled.img`
+  height: 12px;
+  width: 12px;
+`
+
+const CoveredRisksTitel = styled.div`
+  display: flex;
+  margin: 20px 0px;
+`
+
+const CancellationType = styled.label`
   &:hover {
     color: black;
   }
+`
+
+const InputRiskGroup = styled.div`
+  display: flex;
+  margin: 20px 0px;
+`
+const CoveredRiskIcon = styled.img`
+  height: 22px;
+  margin-left: auto;
+  width: 22px;
 `

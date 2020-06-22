@@ -38,7 +38,7 @@ const tariffsData = [
       { riskCover: 'Abbruch', icon: 'icons/yellow-icon.png' },
       { riskCover: 'Gepäck', icon: 'icons/green-icon.png' },
     ],
-    priceTag: 101,
+    priceTag: 99,
     priceIcon: 'icons/preisInformation-icon.png',
     deleteIcon: 'icons/delete-icon.png',
     priceDetails:

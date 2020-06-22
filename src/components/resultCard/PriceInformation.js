@@ -11,12 +11,14 @@ export default function PriceInformation({
 
   return (
     <div>
-      <PriceTag>{priceTag},00€</PriceTag>
-      <PriceInformationIcon
-        onMouseEnter={() => setPriceInformationShown(true)}
-        onMouseLeave={() => setPriceInformationShown(false)}
-        src={priceIcon}
-      ></PriceInformationIcon>
+      <TariffTitlePriceTag>
+        <PriceTag>{priceTag},00€</PriceTag>
+        <PriceInformationIcon
+          onMouseEnter={() => setPriceInformationShown(true)}
+          onMouseLeave={() => setPriceInformationShown(false)}
+          src={priceIcon}
+        ></PriceInformationIcon>
+      </TariffTitlePriceTag>
       {priceInformationShown && (
         <div
           onMouseEnter={() => setPriceInformationShown(true)}
@@ -36,27 +38,30 @@ export default function PriceInformation({
   )
 }
 
+const TariffTitlePriceTag = styled.div`
+  display: flex;
+  position: relative;
+`
+
 const PriceTag = styled.div`
   color: #005ea8;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin-top: 16px;
 `
 
 const PriceInformationIcon = styled.img`
-  bottom: 22px;
   cursor: help;
-  left: 60px;
-  max-height: 16px;
-  max-width: 16px;
-  position: relative;
+  height: 16px;
+  margin: 22px 0 0 6px;
+  width: 16px;
 `
 
 const CloseIconAdditionalPriceInformation = styled.img`
   height: 16px;
   position: absolute;
-  right: 10px;
-  top: 48px;
+  right: -20px;
+  top: 56px;
   width: 16px;
   z-index: 2;
 `
@@ -64,12 +69,37 @@ const CloseIconAdditionalPriceInformation = styled.img`
 const AdditionalPriceInformation = styled.p`
   background: white;
   border: 1px solid #005ea8;
-  height: 140px;
-  max-width: 220px;
-  min-width: 200px;
-  padding: 24px;
+  height: auto;
+  padding: 22px;
   position: absolute;
-  right: 0;
-  top: 40px;
+  right: -28px;
+  top: 48px;
+  width: 220px;
   z-index: 1;
+
+  :before {
+    content: '';
+    border-bottom: 10px solid #005ea8;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    height: 0px;
+    position: absolute;
+    right: 26px;
+    top: -20px;
+    width: 0px;
+  }
+
+  :after {
+    content: '';
+    border-bottom: 10px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    height: 0px;
+    position: absolute;
+    right: 26px;
+    top: -18.6px;
+    width: 0px;
+  }
 `
