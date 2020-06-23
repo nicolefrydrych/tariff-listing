@@ -6,11 +6,11 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
+  align-items: center;
   background: #3969a8;
   color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 65px;
   font-size: 40px;
+  height: 65px;
+  justify-content: center;
 `

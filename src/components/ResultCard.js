@@ -7,10 +7,14 @@ import RiskCoverList from './resultCard/RiskCoverList'
 import PriceInformation from './resultCard/PriceInformation'
 import Button from './resultCard/Button'
 import TariffDetails from './resultCard/TariffDetails'
+import StarRating from './resultCard/StarRating'
 
 export default function ResultCard({
   insuranceName,
   logoUrl,
+  starRating,
+  averageRating,
+  ratingCount,
   uspList,
   priceTag,
   priceIcon,
@@ -45,6 +49,11 @@ export default function ResultCard({
         showTariffDetails={showTariffDetails}
         tariffDetailsText={tariffDetailsText}
       />
+      <StarRating
+        starRating={starRating}
+        averageRating={averageRating}
+        ratingCount={ratingCount}
+      />
     </CardGrid>
   )
   function toggleTariffDetails() {
@@ -72,11 +81,11 @@ const PriceButtonSection = styled.div`
   border-left: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
+  justify-content: space-between;
   margin: 20px 10px;
   position: relative;
 `
