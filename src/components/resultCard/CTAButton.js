@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Button() {
+export default function CTAButton() {
   return (
-    <ButtonSection>
+    <CTAButtonContainer>
       <StyledButtonTop href="https://reiseversicherung.check24.de/desktop/offer/check24/contact/603d14744a8669881d634f84481d5353">
         Angebot »
       </StyledButtonTop>
       <StyledButtonBottom href="https://reiseversicherung.check24.de/desktop/closure/check24/login/5050623632f9f692a4578103b508f852">
         Online Antrag »
       </StyledButtonBottom>
-    </ButtonSection>
+    </CTAButtonContainer>
   )
 }
 
-const ButtonSection = styled.div`
+const CTAButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
 `

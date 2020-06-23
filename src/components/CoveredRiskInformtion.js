@@ -27,23 +27,23 @@ export default function CoveredRiskInformtion() {
           <AdditionalCoveredRiskInformationTitel>
             Insgesamt können Sie bis zu vier Bereiche versichern:
           </AdditionalCoveredRiskInformationTitel>
-          <AdditionalCoveredRiskSection>
+          <AdditionalCoveredRiskGroup>
             <AdditionalCoveredRiskType>Rücktritt</AdditionalCoveredRiskType>
             Erstattet die Kosten, wenn man die Reise nicht antreten kann.
-          </AdditionalCoveredRiskSection>
-          <AdditionalCoveredRiskSection>
+          </AdditionalCoveredRiskGroup>
+          <AdditionalCoveredRiskGroup>
             <AdditionalCoveredRiskType>Reiseabbruch</AdditionalCoveredRiskType>
             Erstattet die Kosten, wenn man die Reise abbrechen muss.
-          </AdditionalCoveredRiskSection>
-          <AdditionalCoveredRiskSection>
+          </AdditionalCoveredRiskGroup>
+          <AdditionalCoveredRiskGroup>
             <AdditionalCoveredRiskType>Reisekranken</AdditionalCoveredRiskType>
             Erstattet die Kosten, wenn man während der Reise behandelt werden
             muss.
-          </AdditionalCoveredRiskSection>
-          <AdditionalCoveredRiskSection>
+          </AdditionalCoveredRiskGroup>
+          <AdditionalCoveredRiskGroup>
             <AdditionalCoveredRiskType>Gepäck</AdditionalCoveredRiskType>
             Erstattet die Kosten bei Verlust des Gepäcks.
-          </AdditionalCoveredRiskSection>
+          </AdditionalCoveredRiskGroup>
         </AdditionalCoveredRiskInformation>
       )}
     </CoveredRiskInformationContainer>
@@ -58,8 +58,8 @@ const CoveredRiskHelpIcon = styled.img`
   background-color: #e5ecff;
   cursor: help;
   height: 22px;
-  width: 22px;
   position: relative;
+  width: 22px;
 `
 
 const AdditionalCoveredRiskInformation = styled.div`
@@ -76,29 +76,29 @@ const AdditionalCoveredRiskInformation = styled.div`
   z-index: 1;
 
   :before {
-    content: '';
-    width: 0px;
-    height: 0px;
-    position: absolute;
+    border-bottom: 10px solid transparent;
     border-left: 10px solid transparent;
     border-right: 10px solid #005ea8;
     border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    content: '';
+    height: 0px;
     left: -20px;
+    position: absolute;
     top: 63px;
+    width: 0px;
   }
 
   :after {
-    content: '';
-    width: 0px;
-    height: 0px;
-    position: absolute;
+    border-bottom: 10px solid transparent;
     border-left: 10px solid transparent;
     border-right: 10px solid white;
     border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    content: '';
+    height: 0px;
     left: -19px;
+    position: absolute;
     top: 63px;
+    width: 0px;
   }
 `
 
@@ -120,6 +120,6 @@ const AdditionalCoveredRiskType = styled.div`
   font-size: 16px;
   font-weight: 600;
 `
-const AdditionalCoveredRiskSection = styled.div`
+const AdditionalCoveredRiskGroup = styled.div`
   margin: 10px 0;
 `

@@ -1,23 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export default function PriceInformation({
-  priceTag,
-  priceIcon,
-  deleteIcon,
-  priceDetails,
-}) {
+export default function PriceTag({ priceTag, priceDetails }) {
   const [priceInformationShown, setPriceInformationShown] = useState(false)
 
   return (
     <div>
       <TariffTitlePriceTag>
-        <PriceTag>{priceTag},00€</PriceTag>
-        <PriceInformationIcon
+        <StyledPriceTag>{priceTag},00€</StyledPriceTag>
+        <PriceInformationHelpIcon
           onMouseEnter={() => setPriceInformationShown(true)}
           onMouseLeave={() => setPriceInformationShown(false)}
-          src={priceIcon}
-        ></PriceInformationIcon>
+          src="icons/preisInformation-icon.png"
+        ></PriceInformationHelpIcon>
       </TariffTitlePriceTag>
       {priceInformationShown && (
         <div
@@ -26,7 +21,7 @@ export default function PriceInformation({
         >
           <CloseIconAdditionalPriceInformation
             onClick={() => setPriceInformationShown(false)}
-            src={deleteIcon}
+            src="icons/delete-icon.png"
           ></CloseIconAdditionalPriceInformation>
 
           <AdditionalPriceInformation
@@ -45,14 +40,14 @@ const TariffTitlePriceTag = styled.div`
   position: relative;
 `
 
-const PriceTag = styled.div`
+const StyledPriceTag = styled.div`
   color: #005ea8;
   font-size: 28px;
   font-weight: bold;
   margin-top: 16px;
 `
 
-const PriceInformationIcon = styled.img`
+const PriceInformationHelpIcon = styled.img`
   cursor: help;
   height: 16px;
   margin: 22px 0 0 6px;
@@ -80,11 +75,11 @@ const AdditionalPriceInformation = styled.p`
   z-index: 1;
 
   :before {
-    content: '';
     border-bottom: 10px solid #005ea8;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
+    content: '';
     height: 0px;
     position: absolute;
     right: 26px;
@@ -93,11 +88,11 @@ const AdditionalPriceInformation = styled.p`
   }
 
   :after {
-    content: '';
     border-bottom: 10px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
+    content: '';
     height: 0px;
     position: absolute;
     right: 26px;
