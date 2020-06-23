@@ -111,14 +111,14 @@ const SortByName = styled.div`
   &:hover {
     background-color: #d9e2eb;
   }
+  &:hover ${SortResultAfter} {
+    display: block;
+  }
   &:hover ${DropdownList} {
     display: block;
   }
   &:hover ${SortResultBefore} {
     display: none;
-  }
-  &:hover ${SortResultAfter} {
-    display: block;
   }
 `
 const SortByNameText = styled.div`

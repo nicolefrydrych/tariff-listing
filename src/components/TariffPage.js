@@ -53,7 +53,7 @@ export default function TariffPage() {
 const TariffPageGrid = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-rows: auto 1fr;
   grid-template-columns: auto 80%;
+  grid-template-rows: auto 1fr;
   padding: 20px;
 `

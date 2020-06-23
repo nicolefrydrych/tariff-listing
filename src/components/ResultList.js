@@ -9,13 +9,13 @@ export default function ResultList({
 }) {
   return (
     <div>
-      <ResultContainer>
+      <ResultListContainer>
         {sortMethod(sortCardsByPrice, sortCardsByName).map((tariff, name) => (
           <div key={name}>
             <ResultCard {...tariff} />
           </div>
         ))}
-      </ResultContainer>
+      </ResultListContainer>
     </div>
   )
 
@@ -38,7 +38,7 @@ export default function ResultList({
   }
 }
 
-const ResultContainer = styled.section`
+const ResultListContainer = styled.section`
   display: flex;
   flex-direction: column;
   grid-column-start: 2;

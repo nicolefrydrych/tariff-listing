@@ -6,15 +6,15 @@ export default function TariffDetails({
   showTariffDetails,
 }) {
   return (
-    <TariffDetailsSection>
+    <TariffDetailsContainer>
       {showTariffDetails && (
         <TariffDetailsText>{tariffDetailsText}</TariffDetailsText>
       )}
-    </TariffDetailsSection>
+    </TariffDetailsContainer>
   )
 }
 
-const TariffDetailsSection = styled.div`
+const TariffDetailsContainer = styled.div`
   background: #f2f2f2;
   grid-column-start: 1;
   grid-column-end: 4;

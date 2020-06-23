@@ -15,12 +15,14 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
             border={'#74b51d'}
             backgroundOnHover={'#dce6c8'}
           >
-            <CoveredPeriod color={'#74b51d'}>Jahresschutz</CoveredPeriod>
+            <CoveredPeriodText color={'#74b51d'}>
+              Jahresschutz
+            </CoveredPeriodText>
             <CheapestYearlyCoveredPrice>ab 29,00€</CheapestYearlyCoveredPrice>
           </CoveredPeriodButton>
           <CoveredPeriodButton>
-            <CoveredPeriod>Einmalschutz</CoveredPeriod>
-            <CoveredPeriodInformationIcon src="icons/preisInformation-icon.png"></CoveredPeriodInformationIcon>
+            <CoveredPeriodText>Einmalschutz</CoveredPeriodText>
+            <CoveredPeriodHelpIcon src="icons/preisInformation-icon.png"></CoveredPeriodHelpIcon>
           </CoveredPeriodButton>
         </CoveredPeriodSection>
         <CoveredRisksTitel>
@@ -156,7 +158,7 @@ const CoveredPeriodButton = styled.div`
   }
 `
 
-const CoveredPeriod = styled.div`
+const CoveredPeriodText = styled.div`
   color: ${(props) => props.color || '#4d4e4f'};
   font-size: 14px;
 `
@@ -166,7 +168,7 @@ const CheapestYearlyCoveredPrice = styled.span`
   font-size: 12px;
 `
 
-const CoveredPeriodInformationIcon = styled.img`
+const CoveredPeriodHelpIcon = styled.img`
   height: 12px;
   width: 12px;
 `

@@ -4,8 +4,8 @@ import CardHeadline from './resultCard/CardHeadline'
 import InsuranceImage from './resultCard/InsuranceImage'
 import TariffDetailsButton from './resultCard/TariffDetailsButton'
 import RiskCoverList from './resultCard/RiskCoverList'
-import PriceInformation from './resultCard/PriceInformation'
-import Button from './resultCard/Button'
+import PriceTag from './resultCard/PriceTag'
+import CTAButton from './resultCard/CTAButton'
 import TariffDetails from './resultCard/TariffDetails'
 import StarRating from './resultCard/StarRating'
 
@@ -17,34 +17,24 @@ export default function ResultCard({
   ratingCount,
   uspList,
   priceTag,
-  priceIcon,
-  deleteIcon,
   priceDetails,
   tariffDetailsText,
 }) {
   const [showTariffDetails, setShowTariffDetails] = useState(false)
 
   return (
-    <CardGrid>
+    <ResultCardContainer>
       <CardHeadline insuranceName={insuranceName} />
       <InsuranceImage logoUrl={logoUrl} />
-
       <TariffDetailsButton
         showTariffDetails={showTariffDetails}
         toggleTariffDetails={toggleTariffDetails}
       />
       <RiskCoverList uspList={uspList} />
-
       <PriceButtonSection>
-        <PriceInformation
-          priceTag={priceTag}
-          priceIcon={priceIcon}
-          deleteIcon={deleteIcon}
-          priceDetails={priceDetails}
-        />
-        <Button />
+        <PriceTag priceTag={priceTag} priceDetails={priceDetails} />
+        <CTAButton />
       </PriceButtonSection>
-
       <TariffDetails
         showTariffDetails={showTariffDetails}
         tariffDetailsText={tariffDetailsText}
@@ -54,14 +44,14 @@ export default function ResultCard({
         averageRating={averageRating}
         ratingCount={ratingCount}
       />
-    </CardGrid>
+    </ResultCardContainer>
   )
   function toggleTariffDetails() {
     setShowTariffDetails(!showTariffDetails)
   }
 }
 
-const CardGrid = styled.div`
+const ResultCardContainer = styled.div`
   background: #f2f2f2;
   border: 1px solid lightgray;
   display: grid;
