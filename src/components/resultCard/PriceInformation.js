@@ -29,7 +29,9 @@ export default function PriceInformation({
             src={deleteIcon}
           ></CloseIconAdditionalPriceInformation>
 
-          <AdditionalPriceInformation>
+          <AdditionalPriceInformation
+            onClick={() => setPriceInformationShown(false)}
+          >
             {priceDetails}
           </AdditionalPriceInformation>
         </div>

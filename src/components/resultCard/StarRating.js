@@ -14,7 +14,6 @@ export default function StarRating({ starRating, averageRating, ratingCount }) {
       />
       <AverageStarRating>{averageRating}</AverageStarRating>
       <RatingsCount>{ratingCount}</RatingsCount>
-      <RatingDetailsHidden></RatingDetailsHidden>
     </StarRatingContainer>
   )
 }
@@ -38,13 +37,4 @@ const RatingsCount = styled.span`
   color: #005ea8;
   font-size: 16px;
   margin-left: 6px;
-`
-
-const RatingDetailsHidden = styled.span`
-  border-left: 4.5px solid transparent;
-  border-right: 4.5px solid transparent;
-  border-top: 5px solid #005ea8;
-  position: relative;
-  top: 10px;
-  left: 8px;
 `

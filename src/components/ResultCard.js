@@ -81,11 +81,11 @@ const PriceButtonSection = styled.div`
   border-left: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 4;
+  justify-content: space-between;
   margin: 20px 10px;
   position: relative;
 `
