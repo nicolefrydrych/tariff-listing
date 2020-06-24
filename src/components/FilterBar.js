@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CoveredRiskInformtion from './CoveredRiskInformtion'
+import CoveredPeriodInformtion from './CoveredPeriodInformtion'
 
 export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
   const [isChecked, setIsChecked] = useState()
@@ -22,7 +23,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
           </CoveredPeriodButton>
           <CoveredPeriodButton>
             <CoveredPeriodText>Einmalschutz</CoveredPeriodText>
-            <CoveredPeriodHelpIcon src="icons/preisInformation-icon.png"></CoveredPeriodHelpIcon>
+            <CoveredPeriodInformtion />
           </CoveredPeriodButton>
         </CoveredPeriodSection>
         <CoveredRisksTitel>
@@ -166,11 +167,6 @@ const CoveredPeriodText = styled.div`
 const CheapestYearlyCoveredPrice = styled.span`
   color: #74b51d;
   font-size: 12px;
-`
-
-const CoveredPeriodHelpIcon = styled.img`
-  height: 12px;
-  width: 12px;
 `
 
 const CoveredRisksTitel = styled.div`

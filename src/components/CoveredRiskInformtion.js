@@ -16,35 +16,35 @@ export default function CoveredRiskInformtion() {
         src="icons/questionMark-icon.png"
       ></CoveredRiskHelpIcon>
       {coveredRiskInformationShown && (
-        <AdditionalCoveredRiskInformation
+        <CoveredRiskInformation
           onMouseEnter={() => setCoveredRiskInformationShown(true)}
           onMouseLeave={() => setCoveredRiskInformationShown(false)}
         >
-          <CloseIconAdditionalCoveredRiskInformation
+          <CloseIconCoveredRiskInformation
             onClick={() => setCoveredRiskInformationShown(false)}
             src="icons/delete-icon.png"
-          ></CloseIconAdditionalCoveredRiskInformation>
-          <AdditionalCoveredRiskInformationTitel>
+          ></CloseIconCoveredRiskInformation>
+          <CoveredRiskTitel>
             Insgesamt können Sie bis zu vier Bereiche versichern:
-          </AdditionalCoveredRiskInformationTitel>
-          <AdditionalCoveredRiskGroup>
-            <AdditionalCoveredRiskType>Rücktritt</AdditionalCoveredRiskType>
+          </CoveredRiskTitel>
+          <CoveredRiskGroup>
+            <CoveredRiskType>Rücktritt</CoveredRiskType>
             Erstattet die Kosten, wenn man die Reise nicht antreten kann.
-          </AdditionalCoveredRiskGroup>
-          <AdditionalCoveredRiskGroup>
-            <AdditionalCoveredRiskType>Reiseabbruch</AdditionalCoveredRiskType>
+          </CoveredRiskGroup>
+          <CoveredRiskGroup>
+            <CoveredRiskType>Reiseabbruch</CoveredRiskType>
             Erstattet die Kosten, wenn man die Reise abbrechen muss.
-          </AdditionalCoveredRiskGroup>
-          <AdditionalCoveredRiskGroup>
-            <AdditionalCoveredRiskType>Reisekranken</AdditionalCoveredRiskType>
+          </CoveredRiskGroup>
+          <CoveredRiskGroup>
+            <CoveredRiskType>Reisekranken</CoveredRiskType>
             Erstattet die Kosten, wenn man während der Reise behandelt werden
             muss.
-          </AdditionalCoveredRiskGroup>
-          <AdditionalCoveredRiskGroup>
-            <AdditionalCoveredRiskType>Gepäck</AdditionalCoveredRiskType>
+          </CoveredRiskGroup>
+          <CoveredRiskGroup>
+            <CoveredRiskType>Gepäck</CoveredRiskType>
             Erstattet die Kosten bei Verlust des Gepäcks.
-          </AdditionalCoveredRiskGroup>
-        </AdditionalCoveredRiskInformation>
+          </CoveredRiskGroup>
+        </CoveredRiskInformation>
       )}
     </CoveredRiskInformationContainer>
   )
@@ -55,14 +55,12 @@ const CoveredRiskInformationContainer = styled.div`
 `
 
 const CoveredRiskHelpIcon = styled.img`
-  background-color: #e5ecff;
   cursor: help;
   height: 22px;
-  position: relative;
   width: 22px;
 `
 
-const AdditionalCoveredRiskInformation = styled.div`
+const CoveredRiskInformation = styled.div`
   background: white;
   border: 1px solid #005ea8;
   font-size: 16px;
@@ -102,7 +100,7 @@ const AdditionalCoveredRiskInformation = styled.div`
   }
 `
 
-const CloseIconAdditionalCoveredRiskInformation = styled.img`
+const CloseIconCoveredRiskInformation = styled.img`
   height: 16px;
   position: absolute;
   right: 10px;
@@ -111,15 +109,15 @@ const CloseIconAdditionalCoveredRiskInformation = styled.img`
   z-index: 2;
 `
 
-const AdditionalCoveredRiskInformationTitel = styled.div`
+const CoveredRiskTitel = styled.div`
   font-size: 16px;
   font-weight: 700;
 `
 
-const AdditionalCoveredRiskType = styled.div`
+const CoveredRiskType = styled.div`
   font-size: 16px;
   font-weight: 600;
 `
-const AdditionalCoveredRiskGroup = styled.div`
+const CoveredRiskGroup = styled.div`
   margin: 10px 0;
 `

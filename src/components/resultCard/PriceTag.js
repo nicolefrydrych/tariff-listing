@@ -19,16 +19,14 @@ export default function PriceTag({ priceTag, priceDetails }) {
           onMouseEnter={() => setPriceInformationShown(true)}
           onMouseLeave={() => setPriceInformationShown(false)}
         >
-          <CloseIconAdditionalPriceInformation
+          <CloseIconPriceInformation
             onClick={() => setPriceInformationShown(false)}
             src="icons/delete-icon.png"
-          ></CloseIconAdditionalPriceInformation>
+          ></CloseIconPriceInformation>
 
-          <AdditionalPriceInformation
-            onClick={() => setPriceInformationShown(false)}
-          >
+          <PriceInformation onClick={() => setPriceInformationShown(false)}>
             {priceDetails}
-          </AdditionalPriceInformation>
+          </PriceInformation>
         </div>
       )}
     </div>
@@ -54,7 +52,7 @@ const PriceInformationHelpIcon = styled.img`
   width: 16px;
 `
 
-const CloseIconAdditionalPriceInformation = styled.img`
+const CloseIconPriceInformation = styled.img`
   height: 16px;
   position: absolute;
   right: -20px;
@@ -63,7 +61,7 @@ const CloseIconAdditionalPriceInformation = styled.img`
   z-index: 2;
 `
 
-const AdditionalPriceInformation = styled.p`
+const PriceInformation = styled.p`
   background: white;
   border: 1px solid #005ea8;
   height: auto;
