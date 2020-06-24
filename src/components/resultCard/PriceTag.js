@@ -52,15 +52,6 @@ const PriceInformationHelpIcon = styled.img`
   width: 16px;
 `
 
-const CloseIconPriceInformation = styled.img`
-  height: 16px;
-  position: absolute;
-  right: -20px;
-  top: 56px;
-  width: 16px;
-  z-index: 2;
-`
-
 const PriceInformation = styled.p`
   background: white;
   border: 1px solid #005ea8;
@@ -97,4 +88,13 @@ const PriceInformation = styled.p`
     top: -18.6px;
     width: 0px;
   }
+`
+
+const CloseIconPriceInformation = styled.img`
+  height: 16px;
+  position: absolute;
+  right: -20px;
+  top: 56px;
+  width: 16px;
+  z-index: 2;
 `
