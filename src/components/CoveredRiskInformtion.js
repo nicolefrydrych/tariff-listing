@@ -63,6 +63,7 @@ const CoveredRiskHelpIcon = styled.img`
 const CoveredRiskInformation = styled.div`
   background: white;
   border: 1px solid #005ea8;
+  box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.74);
   font-size: 16px;
   height: auto;
   padding: 16px;
@@ -79,7 +80,6 @@ const CoveredRiskInformation = styled.div`
     border-right: 10px solid #005ea8;
     border-top: 10px solid transparent;
     content: '';
-    height: 0px;
     left: -20px;
     position: absolute;
     top: 63px;

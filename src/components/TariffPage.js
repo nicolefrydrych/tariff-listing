@@ -55,5 +55,5 @@ const TariffPageGrid = styled.div`
   grid-gap: 24px;
   grid-template-columns: auto 80%;
   grid-template-rows: auto 1fr;
-  padding: 20px;
+  padding: 20px 40px 40px;
 `

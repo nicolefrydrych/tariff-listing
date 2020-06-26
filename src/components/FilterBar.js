@@ -118,7 +118,7 @@ const CoveredRisksContainer = styled.div`
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  min-width: 240px;
+  min-width: 220px;
   z-index: 1;
 `
 
@@ -175,6 +175,7 @@ const CoveredRisksTitel = styled.div`
 `
 
 const CancellationType = styled.label`
+  margin-left: 5px;
   &:hover {
     color: black;
   }
