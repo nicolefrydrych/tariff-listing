@@ -55,6 +55,7 @@ const PriceInformationHelpIcon = styled.img`
 const PriceInformation = styled.p`
   background: white;
   border: 1px solid #005ea8;
+  box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.74);
   height: auto;
   padding: 22px;
   position: absolute;
@@ -69,7 +70,6 @@ const PriceInformation = styled.p`
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
     content: '';
-    height: 0px;
     position: absolute;
     right: 26px;
     top: -20px;
@@ -82,7 +82,6 @@ const PriceInformation = styled.p`
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
     content: '';
-    height: 0px;
     position: absolute;
     right: 26px;
     top: -18.6px;

@@ -52,6 +52,7 @@ const CoveredPeriodHelpIcon = styled.img`
 
 const CoveredPeriodInformation = styled.div`
   background: rgba(10, 50, 120, 0.9);
+  box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.74);
   padding: 15px 20px 20px 15px;
   position: absolute;
   right: -60px;
@@ -65,9 +66,8 @@ const CoveredPeriodInformation = styled.div`
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
     content: '';
-    height: 0px;
     position: absolute;
-    right: 99px;
+    right: 97px;
     top: -20px;
   }
 `
