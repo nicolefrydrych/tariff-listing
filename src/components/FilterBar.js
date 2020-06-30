@@ -4,8 +4,6 @@ import CoveredRiskInformtion from './CoveredRiskInformtion'
 import CoveredPeriodInformtion from './CoveredPeriodInformtion'
 
 export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
-  const [isChecked, setIsChecked] = useState()
-
   return (
     <CoveredRisksContainer>
       <CoveredRisksSection>
@@ -33,11 +31,7 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
         </CoveredRisksTitel>
         <InputRiskGroup>
           <section>
-            <input
-              type="checkbox"
-              onChange={(event) => setIsChecked(event.currentTarget.checked)}
-              onClick={handleRücktrittClick}
-            />
+            <input type="checkbox" onClick={handleRücktrittClick} />
 
             <CancellationType>Rücktritt</CancellationType>
           </section>
@@ -45,33 +39,21 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
         </InputRiskGroup>
         <InputRiskGroup>
           <section>
-            <input
-              type="checkbox"
-              onChange={(event) => setIsChecked(event.currentTarget.checked)}
-              onClick={handleAbbruchClick}
-            />
+            <input type="checkbox" onClick={handleAbbruchClick} />
             <CancellationType>Abbruch</CancellationType>
           </section>
           <CoveredRiskIcon src="icons/island-icon.png"></CoveredRiskIcon>
         </InputRiskGroup>
         <InputRiskGroup>
           <section>
-            <input
-              type="checkbox"
-              onChange={(event) => setIsChecked(event.currentTarget.checked)}
-              onClick={handleReisekrankenClick}
-            />
+            <input type="checkbox" onClick={handleReisekrankenClick} />
             <CancellationType>Reisekranken</CancellationType>
           </section>
           <CoveredRiskIcon src="icons/heart-icon.png"></CoveredRiskIcon>
         </InputRiskGroup>
         <InputRiskGroup>
           <section>
-            <input
-              type="checkbox"
-              onChange={(event) => setIsChecked(event.currentTarget.checked)}
-              onChange={handleGepäckClick}
-            />
+            <input type="checkbox" onClick={handleGepäckClick} />
             <CancellationType>Gepäck</CancellationType>
           </section>
           <CoveredRiskIcon src="icons/suitcase-icon.png"></CoveredRiskIcon>
@@ -85,7 +67,6 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Rücktritt')
     )
     onFilterCardsByContent(filterForRücktritt, event)
-    setIsChecked(isChecked)
   }
 
   function handleAbbruchClick(event) {
@@ -93,7 +74,6 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Abbruch')
     )
     onFilterCardsByContent(filterForAbbruch, event)
-    setIsChecked(isChecked)
   }
 
   function handleReisekrankenClick(event) {
@@ -101,7 +81,6 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Reisekranken')
     )
     onFilterCardsByContent(filterForReisekranken, event)
-    setIsChecked(isChecked)
   }
 
   function handleGepäckClick(event) {
@@ -109,7 +88,6 @@ export default function FilterBar({ onFilterCardsByContent, tariffCards }) {
       tariffCard.uspList.some((uspItem) => uspItem.riskCover === 'Gepäck')
     )
     onFilterCardsByContent(filterForGepäck, event)
-    setIsChecked(isChecked)
   }
 }
 
